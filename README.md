@@ -9,7 +9,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-rich--autojs--ui-blue?logo=github)](https://github.com/yangrui110/rich-atuojs-ui)
 [![AutoJS6](https://img.shields.io/badge/AutoJS6-6.3%2B-green)](https://github.com/SuperMonster003/AutoJs6)
 [![Vue.js](https://img.shields.io/badge/Vue.js-2.6-brightgreen?logo=vue.js)](https://vuejs.org/)
-[![Vant UI](https://img.shields.io/badge/Vant-2.12-07c160)](https://vant-contrib.gitee.io/vant/v2/)
+[![Vant UI](https://img.shields.io/badge/Vant-2.12-07c160)](https://youzan.github.io/vant/v2/#/zh-CN/)
 
 ---
 
@@ -59,7 +59,7 @@
 | VSCode | 最新版 | 代码编辑器 |
 | AutoJS6 VSCode 插件 | 最新版 | 用于连接手机调试 |
 | Android 设备 | 7.0+ | 测试设备 |
-| 安卓包 | 项目的release中下载 | 下载 |
+| 安卓包 | 项目的release中下载 | [下载](https://github.com/yangrui110/rich-atuojs-ui/releases) |
 
 
 ### 安装步骤
