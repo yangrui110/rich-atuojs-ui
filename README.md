@@ -6,7 +6,7 @@
 
 基于 WebView + Vue.js 构建的移动端自动化脚本开发框架
 
-[![GitHub](https://img.shields.io/badge/GitHub-rich--autojs--ui-blue?logo=github)](https://github.com/yangrui110/rich-atuojs-ui)
+[![GitHub](https://img.shields.io/badge/GitHub-rich--autojs--ui-blue?logo=github)](https://github.com/yangrui110/rich-autojs-ui)
 [![AutoJS6](https://img.shields.io/badge/AutoJS6-6.3%2B-green)](https://github.com/SuperMonster003/AutoJs6)
 [![Vue.js](https://img.shields.io/badge/Vue.js-2.6-brightgreen?logo=vue.js)](https://vuejs.org/)
 [![Vant UI](https://img.shields.io/badge/Vant-2.12-07c160)](https://youzan.github.io/vant/v2/#/zh-CN/)
@@ -61,7 +61,7 @@
 | VSCode/cursor | 无 | 代码编辑器 |
 | AutoJS6 VSCode 插件 | 最新版 | 用于连接手机调试 |
 | Android 手机 | 7.0+ | 测试设备 |
-| Autojs APP | 项目的release中下载 | [下载](https://github.com/yangrui110/rich-atuojs-ui/releases) |
+| Autojs APP | 项目的release中下载 | [下载](https://github.com/yangrui110/rich-autojs-ui/releases) |
 
 
 ### 安装步骤
@@ -70,15 +70,15 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/yangrui110/rich-atuojs-ui.git
+git clone https://github.com/yangrui110/rich-autojs-ui.git
 
 # 进入项目目录
-cd rich-atuojs-ui
+cd rich-autojs-ui
 ```
 
 #### 方式二：下载压缩包
 
-直接从 [GitHub Releases](https://github.com/yangrui110/rich-atuojs-ui/releases) 下载最新版本。
+直接从 [GitHub Releases](https://github.com/yangrui110/rich-autojs-ui/releases) 下载最新版本。
 
 ### 开发运行
 
@@ -1007,9 +1007,9 @@ export default {
 
 ## 📞 联系方式
 
-- **GitHub**: [yangrui110/rich-atuojs-ui](https://github.com/yangrui110/rich-atuojs-ui)
-- **Issues**: [提交问题](https://github.com/yangrui110/rich-atuojs-ui/issues)
-- **Pull Requests**: [贡献代码](https://github.com/yangrui110/rich-atuojs-ui/pulls)
+- **GitHub**: [yangrui110/rich-autojs-ui](https://github.com/yangrui110/rich-autojs-ui)
+- **Issues**: [提交问题](https://github.com/yangrui110/rich-autojs-ui/issues)
+- **Pull Requests**: [贡献代码](https://github.com/yangrui110/rich-autojs-ui/pulls)
 
 ---
 
