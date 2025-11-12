@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     /**
      * 判断参数是否为图像对象或路径
@@ -46,7 +46,7 @@
          * @returns {Promise<string>}
          */
         getMode: function() {
-            return $autojs.invoke('ocr.getMode');
+            return $richauto.invoke('ocr.getMode');
         },
         
         /**
@@ -55,7 +55,7 @@
          * @returns {Promise<boolean>}
          */
         setMode: function(mode) {
-            return $autojs.invoke('ocr.setMode', mode);
+            return $richauto.invoke('ocr.setMode', mode);
         },
         
         /**
@@ -64,7 +64,7 @@
          * @returns {Promise<void>}
          */
         tap: function(mode) {
-            return $autojs.invoke('ocr.tap', mode);
+            return $richauto.invoke('ocr.tap', mode);
         },
         
         /**
@@ -72,7 +72,7 @@
          * @returns {Promise<string>}
          */
         summary: function() {
-            return $autojs.invoke('ocr.summary');
+            return $richauto.invoke('ocr.summary');
         },
         
         // ==================== recognizeText 方法（9 个重载）====================
@@ -90,7 +90,7 @@
          */
         recognizeText: function() {
             var args = ['ocr.recognizeText'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== detect 方法（9 个重载）====================
@@ -108,7 +108,7 @@
          */
         detect: function() {
             var args = ['ocr.detect'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== ocr() 直接调用 ====================
@@ -120,7 +120,7 @@
          */
         invoke: function() {
             var args = ['ocr.invoke'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== MLKit 引擎 ====================
@@ -132,7 +132,7 @@
              */
             recognizeText: function() {
                 var args = ['ocr.mlkit.recognizeText'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -141,7 +141,7 @@
              */
             detect: function() {
                 var args = ['ocr.mlkit.detect'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -150,7 +150,7 @@
              */
             invoke: function() {
                 var args = ['ocr.mlkit.invoke'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             }
         },
         
@@ -163,7 +163,7 @@
              */
             recognizeText: function() {
                 var args = ['ocr.paddle.recognizeText'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -172,7 +172,7 @@
              */
             detect: function() {
                 var args = ['ocr.paddle.detect'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -181,7 +181,7 @@
              */
             invoke: function() {
                 var args = ['ocr.paddle.invoke'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             }
         }
     };
@@ -200,7 +200,7 @@
     });
     
     // 挂载到临时命名空间
-    window.__autojs_modules.ocr = ocrModule;
+    window.__richauto_modules.ocr = ocrModule;
     
 })(window);
 

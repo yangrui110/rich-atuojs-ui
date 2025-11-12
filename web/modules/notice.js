@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Notice 模块定义
     var noticeModule = {
@@ -26,7 +26,7 @@
          */
         send: function() {
             var args = ['notice.send'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== 通知状态检查 ====================
@@ -36,7 +36,7 @@
          * @returns {Promise<boolean>}
          */
         isEnabled: function() {
-            return $autojs.invoke('notice.isEnabled');
+            return $richauto.invoke('notice.isEnabled');
         },
         
         /**
@@ -45,7 +45,7 @@
          * @returns {Promise<void>}
          */
         ensureEnabled: function() {
-            return $autojs.invoke('notice.ensureEnabled');
+            return $richauto.invoke('notice.ensureEnabled');
         },
         
         // ==================== 通知设置 ====================
@@ -55,7 +55,7 @@
          * @returns {Promise<void>}
          */
         launchSettings: function() {
-            return $autojs.invoke('notice.launchSettings');
+            return $richauto.invoke('notice.launchSettings');
         },
         
         // ==================== 通知管理 ====================
@@ -66,7 +66,7 @@
          * @returns {Promise<void>}
          */
         cancel: function(id) {
-            return $autojs.invoke('notice.cancel', id);
+            return $richauto.invoke('notice.cancel', id);
         },
         
         // ==================== 通知构建器 ====================
@@ -76,7 +76,7 @@
          * @returns {Promise<any>} NoticeBuilder 对象
          */
         getBuilder: function() {
-            return $autojs.invoke('notice.getBuilder');
+            return $richauto.invoke('notice.getBuilder');
         },
         
         // ==================== 通知配置 ====================
@@ -87,7 +87,7 @@
          * @returns {Promise<void>}
          */
         config: function(preset) {
-            return $autojs.invoke('notice.config', preset);
+            return $richauto.invoke('notice.config', preset);
         },
         
         // ==================== 通知渠道管理 ====================
@@ -105,7 +105,7 @@
              */
             create: function() {
                 var args = ['notice.channel.create'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -114,7 +114,7 @@
              * @returns {Promise<boolean>}
              */
             contains: function(channelId) {
-                return $autojs.invoke('notice.channel.contains', channelId);
+                return $richauto.invoke('notice.channel.contains', channelId);
             },
             
             /**
@@ -123,7 +123,7 @@
              * @returns {Promise<boolean>} 删除前渠道是否存在
              */
             remove: function(channelId) {
-                return $autojs.invoke('notice.channel.remove', channelId);
+                return $richauto.invoke('notice.channel.remove', channelId);
             },
             
             /**
@@ -132,7 +132,7 @@
              * @returns {Promise<Object|null>} 渠道信息对象或 null
              */
             get: function(channelId) {
-                return $autojs.invoke('notice.channel.get', channelId);
+                return $richauto.invoke('notice.channel.get', channelId);
             },
             
             /**
@@ -140,13 +140,13 @@
              * @returns {Promise<Array>} 渠道信息对象数组
              */
             getAll: function() {
-                return $autojs.invoke('notice.channel.getAll');
+                return $richauto.invoke('notice.channel.getAll');
             }
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.notice = noticeModule;
+    window.__richauto_modules.notice = noticeModule;
     
 })(window);
 

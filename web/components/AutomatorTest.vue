@@ -61,21 +61,21 @@ export default {
         
         // 测试启用无障碍服务
         testAutoWaitFor() {
-            autojs.global.toastLog('正在检查无障碍服务...');
-            autojs.automator.auto.waitFor().then(() => {
-                autojs.global.toastLog('无障碍服务已启动');
+            richauto.global.toastLog('正在检查无障碍服务...');
+            richauto.automator.auto.waitFor().then(() => {
+                richauto.global.toastLog('无障碍服务已启动');
             }).catch((err) => {
-                autojs.global.toastLog('无障碍服务启动失败: ' + err);
+                richauto.global.toastLog('无障碍服务启动失败: ' + err);
             });
         },
         
         // 测试设置无障碍模式
         async testAutoSetMode() {
             try {
-                await autojs.automator.auto.setMode('fast');
-                autojs.global.toastLog('无障碍模式已设置为: fast');
+                await richauto.automator.auto.setMode('fast');
+                richauto.global.toastLog('无障碍模式已设置为: fast');
             } catch (err) {
-                autojs.global.toastLog('设置失败: ' + err);
+                richauto.global.toastLog('设置失败: ' + err);
             }
         },
         
@@ -84,65 +84,65 @@ export default {
         // 测试设置屏幕度量
         async testSetScreenMetrics() {
             try {
-                const width = await autojs.global.WIDTH;
-                const height = await autojs.global.HEIGHT;
-                await autojs.automator.setScreenMetrics(width, height);
-                autojs.global.toastLog(`屏幕度量已设置: ${width}x${height}`);
+                const width = await richauto.global.WIDTH;
+                const height = await richauto.global.HEIGHT;
+                await richauto.automator.setScreenMetrics(width, height);
+                richauto.global.toastLog(`屏幕度量已设置: ${width}x${height}`);
             } catch (err) {
-                autojs.global.toastLog('设置失败: ' + err);
+                richauto.global.toastLog('设置失败: ' + err);
             }
         },
         
         // 测试点击坐标
         async testClick() {
-            autojs.global.toastLog('将在 2 秒后点击屏幕中心位置');
-            await autojs.global.sleep(2000);
+            richauto.global.toastLog('将在 2 秒后点击屏幕中心位置');
+            await richauto.global.sleep(2000);
             
-            const width = await autojs.global.WIDTH;
-            const height = await autojs.global.HEIGHT;
+            const width = await richauto.global.WIDTH;
+            const height = await richauto.global.HEIGHT;
             const centerX = width / 2;
             const centerY = height / 2;
             
-            const success = await autojs.automator.click(centerX, centerY);
-            autojs.global.toastLog(`点击${success ? '成功' : '失败'}: (${centerX}, ${centerY})`);
+            const success = await richauto.automator.click(centerX, centerY);
+            richauto.global.toastLog(`点击${success ? '成功' : '失败'}: (${centerX}, ${centerY})`);
         },
         
         // 测试长按
         async testLongClick() {
-            autojs.global.toastLog('将在 2 秒后长按屏幕中心位置');
-            await autojs.global.sleep(2000);
+            richauto.global.toastLog('将在 2 秒后长按屏幕中心位置');
+            await richauto.global.sleep(2000);
             
-            const width = await autojs.global.WIDTH;
-            const height = await autojs.global.HEIGHT;
+            const width = await richauto.global.WIDTH;
+            const height = await richauto.global.HEIGHT;
             const centerX = width / 2;
             const centerY = height / 2;
             
-            const success = await autojs.automator.longClick(centerX, centerY);
-            autojs.global.toastLog(`长按${success ? '成功' : '失败'}: (${centerX}, ${centerY})`);
+            const success = await richauto.automator.longClick(centerX, centerY);
+            richauto.global.toastLog(`长按${success ? '成功' : '失败'}: (${centerX}, ${centerY})`);
         },
         
         // 测试滑动
         async testSwipe() {
-            autojs.global.toastLog('将在 2 秒后从屏幕上方向下滑动');
-            await autojs.global.sleep(2000);
+            richauto.global.toastLog('将在 2 秒后从屏幕上方向下滑动');
+            await richauto.global.sleep(2000);
             
-            const width = await autojs.global.WIDTH;
-            const height = await autojs.global.HEIGHT;
+            const width = await richauto.global.WIDTH;
+            const height = await richauto.global.HEIGHT;
             const x = width / 2;
             const y1 = height * 0.2;
             const y2 = height * 0.8;
             
-            const success = await autojs.automator.swipe(x, y1, x, y2, 500);
-            autojs.global.toastLog(`滑动${success ? '成功' : '失败'}`);
+            const success = await richauto.automator.swipe(x, y1, x, y2, 500);
+            richauto.global.toastLog(`滑动${success ? '成功' : '失败'}`);
         },
         
         // 测试手势
         async testGesture() {
-            autojs.global.toastLog('将在 2 秒后绘制一个圆形手势');
-            await autojs.global.sleep(2000);
+            richauto.global.toastLog('将在 2 秒后绘制一个圆形手势');
+            await richauto.global.sleep(2000);
             
-            const width = await autojs.global.WIDTH;
-            const height = await autojs.global.HEIGHT;
+            const width = await richauto.global.WIDTH;
+            const height = await richauto.global.HEIGHT;
             const centerX = width / 2;
             const centerY = height / 2;
             const radius = 200;
@@ -157,38 +157,38 @@ export default {
                 ]);
             }
             
-            const success = await autojs.automator.gesture(1000, points);
-            autojs.global.toastLog(`手势${success ? '成功' : '失败'}`);
+            const success = await richauto.automator.gesture(1000, points);
+            richauto.global.toastLog(`手势${success ? '成功' : '失败'}`);
         },
         
         // ==================== 基于控件的操作 ====================
         
         // 测试点击文本
         async testClickText() {
-            autojs.global.toastLog('尝试点击"配置"文本...');
-            const success = await autojs.automator.clickText('配置');
-            autojs.global.toastLog(`点击文本${success ? '成功' : '失败'}`);
+            richauto.global.toastLog('尝试点击"配置"文本...');
+            const success = await richauto.automator.clickText('配置');
+            richauto.global.toastLog(`点击文本${success ? '成功' : '失败'}`);
         },
         
         // 测试长按文本
         async testLongClickText() {
-            autojs.global.toastLog('尝试长按"配置"文本...');
-            const success = await autojs.automator.longClickText('配置');
-            autojs.global.toastLog(`长按文本${success ? '成功' : '失败'}`);
+            richauto.global.toastLog('尝试长按"配置"文本...');
+            const success = await richauto.automator.longClickText('配置');
+            richauto.global.toastLog(`长按文本${success ? '成功' : '失败'}`);
         },
         
         // 测试上滑
         async testScrollUp() {
-            autojs.global.toastLog('尝试上滑...');
-            const success = await autojs.automator.scrollUp();
-            autojs.global.toastLog(`上滑${success ? '成功' : '失败'}`);
+            richauto.global.toastLog('尝试上滑...');
+            const success = await richauto.automator.scrollUp();
+            richauto.global.toastLog(`上滑${success ? '成功' : '失败'}`);
         },
         
         // 测试下滑
         async testScrollDown() {
-            autojs.global.toastLog('尝试下滑...');
-            const success = await autojs.automator.scrollDown();
-            autojs.global.toastLog(`下滑${success ? '成功' : '失败'}`);
+            richauto.global.toastLog('尝试下滑...');
+            const success = await richauto.automator.scrollDown();
+            richauto.global.toastLog(`下滑${success ? '成功' : '失败'}`);
         },
         
         // ==================== Root 权限操作 ====================
@@ -196,37 +196,37 @@ export default {
         // 测试 Root Tap
         async testRootTap() {
             try {
-                autojs.global.toastLog('将在 2 秒后使用 Root 权限点击屏幕中心');
-                await autojs.global.sleep(2000);
+                richauto.global.toastLog('将在 2 秒后使用 Root 权限点击屏幕中心');
+                await richauto.global.sleep(2000);
                 
-                const width = await autojs.global.WIDTH;
-                const height = await autojs.global.HEIGHT;
+                const width = await richauto.global.WIDTH;
+                const height = await richauto.global.HEIGHT;
                 const centerX = width / 2;
                 const centerY = height / 2;
                 
-                await autojs.automator.Tap(centerX, centerY);
-                autojs.global.toastLog(`Root Tap 完成: (${centerX}, ${centerY})`);
+                await richauto.automator.Tap(centerX, centerY);
+                richauto.global.toastLog(`Root Tap 完成: (${centerX}, ${centerY})`);
             } catch (err) {
-                autojs.global.toastLog('Root Tap 失败: ' + err);
+                richauto.global.toastLog('Root Tap 失败: ' + err);
             }
         },
         
         // 测试 Root Swipe
         async testRootSwipe() {
             try {
-                autojs.global.toastLog('将在 2 秒后使用 Root 权限滑动');
-                await autojs.global.sleep(2000);
+                richauto.global.toastLog('将在 2 秒后使用 Root 权限滑动');
+                await richauto.global.sleep(2000);
                 
-                const width = await autojs.global.WIDTH;
-                const height = await autojs.global.HEIGHT;
+                const width = await richauto.global.WIDTH;
+                const height = await richauto.global.HEIGHT;
                 const x = width / 2;
                 const y1 = height * 0.2;
                 const y2 = height * 0.8;
                 
-                await autojs.automator.Swipe(x, y1, x, y2, 500);
-                autojs.global.toastLog('Root Swipe 完成');
+                await richauto.automator.Swipe(x, y1, x, y2, 500);
+                richauto.global.toastLog('Root Swipe 完成');
             } catch (err) {
-                autojs.global.toastLog('Root Swipe 失败: ' + err);
+                richauto.global.toastLog('Root Swipe 失败: ' + err);
             }
         },
     }

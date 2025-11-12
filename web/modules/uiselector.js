@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     /**
      * 选择器构建器类
@@ -269,7 +269,7 @@
      * @returns {Promise<any>}
      */
     SelectorBuilder.prototype.findOnce = function(i) {
-        return $autojs.invoke('uiselector.findOnce', this._getCriteria(), i);
+        return $richauto.invoke('uiselector.findOnce', this._getCriteria(), i);
     };
     
     /**
@@ -277,7 +277,7 @@
      * @returns {Promise<Array>}
      */
     SelectorBuilder.prototype.find = function() {
-        return $autojs.invoke('uiselector.find', this._getCriteria());
+        return $richauto.invoke('uiselector.find', this._getCriteria());
     };
     
     /**
@@ -286,7 +286,7 @@
      * @returns {Promise<any>}
      */
     SelectorBuilder.prototype.findOne = function(timeout) {
-        return $autojs.invoke('uiselector.findOne', this._getCriteria(), timeout);
+        return $richauto.invoke('uiselector.findOne', this._getCriteria(), timeout);
     };
     
     /**
@@ -295,7 +295,7 @@
      * @returns {Promise<any>}
      */
     SelectorBuilder.prototype.untilFindOne = function(timeout) {
-        return $autojs.invoke('uiselector.untilFindOne', this._getCriteria(), timeout);
+        return $richauto.invoke('uiselector.untilFindOne', this._getCriteria(), timeout);
     };
     
     /**
@@ -304,7 +304,7 @@
      * @returns {Promise<Array>}
      */
     SelectorBuilder.prototype.untilFind = function(timeout) {
-        return $autojs.invoke('uiselector.untilFind', this._getCriteria(), timeout);
+        return $richauto.invoke('uiselector.untilFind', this._getCriteria(), timeout);
     };
     
     /**
@@ -313,7 +313,7 @@
      * @returns {Promise<void>}
      */
     SelectorBuilder.prototype.waitFor = function(timeout) {
-        return $autojs.invoke('uiselector.waitFor', this._getCriteria(), timeout);
+        return $richauto.invoke('uiselector.waitFor', this._getCriteria(), timeout);
     };
     
     /**
@@ -321,7 +321,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.exists = function() {
-        return $autojs.invoke('uiselector.exists', this._getCriteria());
+        return $richauto.invoke('uiselector.exists', this._getCriteria());
     };
     
     // ==================== 行为方法 ====================
@@ -332,7 +332,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.click = function(i) {
-        return $autojs.invoke('uiselector.click', this._getCriteria(), i);
+        return $richauto.invoke('uiselector.click', this._getCriteria(), i);
     };
     
     /**
@@ -341,7 +341,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.longClick = function(i) {
-        return $autojs.invoke('uiselector.longClick', this._getCriteria(), i);
+        return $richauto.invoke('uiselector.longClick', this._getCriteria(), i);
     };
     
     /**
@@ -352,9 +352,9 @@
      */
     SelectorBuilder.prototype.setText = function(arg1, arg2) {
         if (arg2 !== undefined) {
-            return $autojs.invoke('uiselector.setText', this._getCriteria(), arg1, arg2);
+            return $richauto.invoke('uiselector.setText', this._getCriteria(), arg1, arg2);
         } else {
-            return $autojs.invoke('uiselector.setText', this._getCriteria(), arg1);
+            return $richauto.invoke('uiselector.setText', this._getCriteria(), arg1);
         }
     };
     
@@ -363,7 +363,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.scrollForward = function() {
-        return $autojs.invoke('uiselector.scrollForward', this._getCriteria());
+        return $richauto.invoke('uiselector.scrollForward', this._getCriteria());
     };
     
     /**
@@ -371,7 +371,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.scrollBackward = function() {
-        return $autojs.invoke('uiselector.scrollBackward', this._getCriteria());
+        return $richauto.invoke('uiselector.scrollBackward', this._getCriteria());
     };
     
     /**
@@ -379,7 +379,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.focus = function() {
-        return $autojs.invoke('uiselector.focus', this._getCriteria());
+        return $richauto.invoke('uiselector.focus', this._getCriteria());
     };
     
     /**
@@ -387,7 +387,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.clearFocus = function() {
-        return $autojs.invoke('uiselector.clearFocus', this._getCriteria());
+        return $richauto.invoke('uiselector.clearFocus', this._getCriteria());
     };
     
     /**
@@ -395,7 +395,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.paste = function() {
-        return $autojs.invoke('uiselector.paste', this._getCriteria());
+        return $richauto.invoke('uiselector.paste', this._getCriteria());
     };
     
     /**
@@ -405,7 +405,7 @@
      * @returns {Promise<boolean>}
      */
     SelectorBuilder.prototype.setSelection = function(start, end) {
-        return $autojs.invoke('uiselector.setSelection', this._getCriteria(), start, end);
+        return $richauto.invoke('uiselector.setSelection', this._getCriteria(), start, end);
     };
     
     // UiSelector 模块定义
@@ -634,12 +634,12 @@
          * @returns {Promise<any>}
          */
         pickup: function(selector, compass) {
-            return $autojs.invoke('uiselector.pickup', selector, compass);
+            return $richauto.invoke('uiselector.pickup', selector, compass);
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.uiselector = uiselectorModule;
+    window.__richauto_modules.uiselector = uiselectorModule;
     
 })(window);
 

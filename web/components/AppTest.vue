@@ -83,14 +83,14 @@ export default {
         // 测试获取版本信息
         async testVersionInfo() {
             try {
-                const versionCode = await autojs.app.getVersionCode();
-                const versionName = await autojs.app.getVersionName();
-                const ajVersionCode = await autojs.app.autojs.getVersionCode();
-                const ajVersionName = await autojs.app.autojs.getVersionName();
+                const versionCode = await richauto.app.getVersionCode();
+                const versionName = await richauto.app.getVersionName();
+                const ajVersionCode = await richauto.app.richauto.getVersionCode();
+                const ajVersionName = await richauto.app.richauto.getVersionName();
                 
-                autojs.global.toastLog(`当前软件: ${versionName} (${versionCode})\nAutoJS: ${ajVersionName} (${ajVersionCode})`);
+                richauto.global.toastLog(`当前软件: ${versionName} (${versionCode})\nAutoJS: ${ajVersionName} (${ajVersionCode})`);
             } catch (err) {
-                autojs.global.toastLog('获取版本信息失败: ' + err);
+                richauto.global.toastLog('获取版本信息失败: ' + err);
             }
         },
         
@@ -99,10 +99,10 @@ export default {
         // 测试通过名称启动应用
         async testLaunchApp() {
             try {
-                const success = await autojs.app.launchApp('设置');
-                autojs.global.toastLog(`启动应用${success ? '成功' : '失败'}`);
+                const success = await richauto.app.launchApp('设置');
+                richauto.global.toastLog(`启动应用${success ? '成功' : '失败'}`);
             } catch (err) {
-                autojs.global.toastLog('启动应用失败: ' + err);
+                richauto.global.toastLog('启动应用失败: ' + err);
             }
         },
         
@@ -110,10 +110,10 @@ export default {
         async testLaunch() {
             try {
                 // 启动系统设置
-                const success = await autojs.app.launch('com.android.settings');
-                autojs.global.toastLog(`启动应用${success ? '成功' : '失败'}`);
+                const success = await richauto.app.launch('com.android.settings');
+                richauto.global.toastLog(`启动应用${success ? '成功' : '失败'}`);
             } catch (err) {
-                autojs.global.toastLog('启动应用失败: ' + err);
+                richauto.global.toastLog('启动应用失败: ' + err);
             }
         },
         
@@ -122,28 +122,28 @@ export default {
         // 测试获取应用包名
         async testGetPackageName() {
             try {
-                const packageName = await autojs.app.getPackageName('设置');
+                const packageName = await richauto.app.getPackageName('设置');
                 if (packageName) {
-                    autojs.global.toastLog(`设置的包名: ${packageName}`);
+                    richauto.global.toastLog(`设置的包名: ${packageName}`);
                 } else {
-                    autojs.global.toastLog('未找到该应用');
+                    richauto.global.toastLog('未找到该应用');
                 }
             } catch (err) {
-                autojs.global.toastLog('获取包名失败: ' + err);
+                richauto.global.toastLog('获取包名失败: ' + err);
             }
         },
         
         // 测试获取应用名称
         async testGetAppName() {
             try {
-                const appName = await autojs.app.getAppName('com.android.settings');
+                const appName = await richauto.app.getAppName('com.android.settings');
                 if (appName) {
-                    autojs.global.toastLog(`包名对应的应用: ${appName}`);
+                    richauto.global.toastLog(`包名对应的应用: ${appName}`);
                 } else {
-                    autojs.global.toastLog('未找到该应用');
+                    richauto.global.toastLog('未找到该应用');
                 }
             } catch (err) {
-                autojs.global.toastLog('获取应用名称失败: ' + err);
+                richauto.global.toastLog('获取应用名称失败: ' + err);
             }
         },
         
@@ -153,22 +153,22 @@ export default {
         async testOpenAppSetting() {
             try {
                 // 打开系统设置的应用设置页
-                const success = await autojs.app.openAppSetting('com.android.settings');
-                autojs.global.toastLog(`打开设置${success ? '成功' : '失败'}`);
+                const success = await richauto.app.openAppSetting('com.android.settings');
+                richauto.global.toastLog(`打开设置${success ? '成功' : '失败'}`);
             } catch (err) {
-                autojs.global.toastLog('打开设置失败: ' + err);
+                richauto.global.toastLog('打开设置失败: ' + err);
             }
         },
         
         // 测试卸载应用
         async testUninstall() {
             try {
-                autojs.global.toastLog('注意: 这将弹出卸载确认对话框');
-                await autojs.global.sleep(1000);
+                richauto.global.toastLog('注意: 这将弹出卸载确认对话框');
+                await richauto.global.sleep(1000);
                 // 使用一个测试包名
-                await autojs.app.uninstall('com.example.test');
+                await richauto.app.uninstall('com.example.test');
             } catch (err) {
-                autojs.global.toastLog('卸载操作失败: ' + err);
+                richauto.global.toastLog('卸载操作失败: ' + err);
             }
         },
         
@@ -177,30 +177,30 @@ export default {
         // 测试查看文件
         async testViewFile() {
             try {
-                await autojs.app.viewFile('/sdcard/test.txt');
-                autojs.global.toastLog('已尝试打开文件查看器');
+                await richauto.app.viewFile('/sdcard/test.txt');
+                richauto.global.toastLog('已尝试打开文件查看器');
             } catch (err) {
-                autojs.global.toastLog('查看文件失败: ' + err);
+                richauto.global.toastLog('查看文件失败: ' + err);
             }
         },
         
         // 测试编辑文件
         async testEditFile() {
             try {
-                await autojs.app.editFile('/sdcard/test.txt');
-                autojs.global.toastLog('已尝试打开文件编辑器');
+                await richauto.app.editFile('/sdcard/test.txt');
+                richauto.global.toastLog('已尝试打开文件编辑器');
             } catch (err) {
-                autojs.global.toastLog('编辑文件失败: ' + err);
+                richauto.global.toastLog('编辑文件失败: ' + err);
             }
         },
         
         // 测试打开 URL
         async testOpenUrl() {
             try {
-                await autojs.app.openUrl('https://www.autojs.org');
-                autojs.global.toastLog('已打开浏览器');
+                await richauto.app.openUrl('https://www.richauto.org');
+                richauto.global.toastLog('已打开浏览器');
             } catch (err) {
-                autojs.global.toastLog('打开 URL 失败: ' + err);
+                richauto.global.toastLog('打开 URL 失败: ' + err);
             }
         },
         
@@ -209,14 +209,14 @@ export default {
         // 测试发送邮件
         async testSendEmail() {
             try {
-                await autojs.app.sendEmail({
+                await richauto.app.sendEmail({
                     email: 'test@example.com',
                     subject: '测试邮件',
                     text: '这是一封测试邮件'
                 });
-                autojs.global.toastLog('已打开邮件应用');
+                richauto.global.toastLog('已打开邮件应用');
             } catch (err) {
-                autojs.global.toastLog('发送邮件失败: ' + err);
+                richauto.global.toastLog('发送邮件失败: ' + err);
             }
         },
         
@@ -224,10 +224,10 @@ export default {
         async testStartActivity() {
             try {
                 // 启动 AutoJS 的日志界面
-                await autojs.app.startActivity('console');
-                autojs.global.toastLog('已启动日志界面');
+                await richauto.app.startActivity('console');
+                richauto.global.toastLog('已启动日志界面');
             } catch (err) {
-                autojs.global.toastLog('启动 Activity 失败: ' + err);
+                richauto.global.toastLog('启动 Activity 失败: ' + err);
             }
         },
         
@@ -236,13 +236,13 @@ export default {
         // 测试构造 Intent
         async testIntent() {
             try {
-                const intent = await autojs.app.intent({
+                const intent = await richauto.app.intent({
                     action: 'VIEW',
-                    data: 'https://www.autojs.org'
+                    data: 'https://www.richauto.org'
                 });
-                autojs.global.toastLog('Intent 构造成功');
+                richauto.global.toastLog('Intent 构造成功');
             } catch (err) {
-                autojs.global.toastLog('构造 Intent 失败: ' + err);
+                richauto.global.toastLog('构造 Intent 失败: ' + err);
             }
         },
         
@@ -250,10 +250,10 @@ export default {
         async testSendBroadcast() {
             try {
                 // 发送布局层次分析广播
-                await autojs.app.sendBroadcast('inspect_layout_hierarchy');
-                autojs.global.toastLog('已发送广播');
+                await richauto.app.sendBroadcast('inspect_layout_hierarchy');
+                richauto.global.toastLog('已发送广播');
             } catch (err) {
-                autojs.global.toastLog('发送广播失败: ' + err);
+                richauto.global.toastLog('发送广播失败: ' + err);
             }
         },
         
@@ -262,28 +262,28 @@ export default {
         // 测试解析 Uri
         async testParseUri() {
             try {
-                const uri = await autojs.app.parseUri('https://www.autojs.org');
+                const uri = await richauto.app.parseUri('https://www.richauto.org');
                 if (uri) {
-                    autojs.global.toastLog(`解析的 Uri: ${uri}`);
+                    richauto.global.toastLog(`解析的 Uri: ${uri}`);
                 } else {
-                    autojs.global.toastLog('Uri 解析失败');
+                    richauto.global.toastLog('Uri 解析失败');
                 }
             } catch (err) {
-                autojs.global.toastLog('解析 Uri 失败: ' + err);
+                richauto.global.toastLog('解析 Uri 失败: ' + err);
             }
         },
         
         // 测试获取文件 Uri
         async testGetUriForFile() {
             try {
-                const uri = await autojs.app.getUriForFile('/sdcard/test.txt');
+                const uri = await richauto.app.getUriForFile('/sdcard/test.txt');
                 if (uri) {
-                    autojs.global.toastLog(`文件 Uri: ${uri}`);
+                    richauto.global.toastLog(`文件 Uri: ${uri}`);
                 } else {
-                    autojs.global.toastLog('获取文件 Uri 失败');
+                    richauto.global.toastLog('获取文件 Uri 失败');
                 }
             } catch (err) {
-                autojs.global.toastLog('获取文件 Uri 失败: ' + err);
+                richauto.global.toastLog('获取文件 Uri 失败: ' + err);
             }
         }
     }

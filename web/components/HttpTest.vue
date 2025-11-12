@@ -97,18 +97,18 @@ export default {
         // 测试 GET 百度
         async testGetBaidu() {
             try {
-                autojs.global.toastLog('正在请求百度...');
+                richauto.global.toastLog('正在请求百度...');
                 
-                const response = await autojs.http.get('http://www.baidu.com');
+                const response = await richauto.http.get('http://www.baidu.com');
                 this.lastResponse = response;
                 
                 if (response.statusCode === 200) {
-                    autojs.global.toastLog('请求成功! 状态码: ' + response.statusCode);
+                    richauto.global.toastLog('请求成功! 状态码: ' + response.statusCode);
                 } else {
-                    autojs.global.toastLog('请求失败: ' + response.statusCode + ' ' + response.statusMessage);
+                    richauto.global.toastLog('请求失败: ' + response.statusCode + ' ' + response.statusMessage);
                 }
             } catch (err) {
-                autojs.global.toastLog('请求失败: ' + err);
+                richauto.global.toastLog('请求失败: ' + err);
                 console.error(err);
             }
         },
@@ -116,9 +116,9 @@ export default {
         // 测试带请求头的 GET
         async testGetWithHeaders() {
             try {
-                autojs.global.toastLog('正在发送带自定义请求头的 GET 请求...');
+                richauto.global.toastLog('正在发送带自定义请求头的 GET 请求...');
                 
-                const response = await autojs.http.get('http://httpbin.org/headers', {
+                const response = await richauto.http.get('http://httpbin.org/headers', {
                     headers: {
                         'User-Agent': 'AutoJS6-Test/1.0',
                         'Accept': 'application/json',
@@ -129,15 +129,15 @@ export default {
                 this.lastResponse = response;
                 
                 if (response.statusCode === 200) {
-                    autojs.global.toastLog('请求成功!');
+                    richauto.global.toastLog('请求成功!');
                     if (response.bodyJson) {
                         console.log('响应 JSON:', JSON.stringify(response.bodyJson, null, 2));
                     }
                 } else {
-                    autojs.global.toastLog('请求失败: ' + response.statusCode);
+                    richauto.global.toastLog('请求失败: ' + response.statusCode);
                 }
             } catch (err) {
-                autojs.global.toastLog('请求失败: ' + err);
+                richauto.global.toastLog('请求失败: ' + err);
                 console.error(err);
             }
         },
@@ -145,18 +145,18 @@ export default {
         // 测试 GET GitHub
         async testGetGithub() {
             try {
-                autojs.global.toastLog('正在请求 GitHub API...');
+                richauto.global.toastLog('正在请求 GitHub API...');
                 
-                const response = await autojs.http.get('https://api.github.com/zen');
+                const response = await richauto.http.get('https://api.github.com/zen');
                 this.lastResponse = response;
                 
                 if (response.statusCode === 200) {
-                    autojs.global.toastLog('GitHub 禅语: ' + response.body);
+                    richauto.global.toastLog('GitHub 禅语: ' + response.body);
                 } else {
-                    autojs.global.toastLog('请求失败: ' + response.statusCode);
+                    richauto.global.toastLog('请求失败: ' + response.statusCode);
                 }
             } catch (err) {
-                autojs.global.toastLog('请求失败: ' + err);
+                richauto.global.toastLog('请求失败: ' + err);
             }
         },
         
@@ -165,9 +165,9 @@ export default {
         // 测试 POST 表单
         async testPostForm() {
             try {
-                autojs.global.toastLog('正在发送 POST 表单请求...');
+                richauto.global.toastLog('正在发送 POST 表单请求...');
                 
-                const response = await autojs.http.post('http://httpbin.org/post', {
+                const response = await richauto.http.post('http://httpbin.org/post', {
                     username: 'testuser',
                     password: 'testpass',
                     email: 'test@example.com'
@@ -176,24 +176,24 @@ export default {
                 this.lastResponse = response;
                 
                 if (response.statusCode === 200) {
-                    autojs.global.toastLog('POST 请求成功!');
+                    richauto.global.toastLog('POST 请求成功!');
                     if (response.bodyJson) {
                         console.log('服务器接收到的表单:', response.bodyJson.form);
                     }
                 } else {
-                    autojs.global.toastLog('请求失败: ' + response.statusCode);
+                    richauto.global.toastLog('请求失败: ' + response.statusCode);
                 }
             } catch (err) {
-                autojs.global.toastLog('请求失败: ' + err);
+                richauto.global.toastLog('请求失败: ' + err);
             }
         },
         
         // 测试 POST JSON
         async testPostJson() {
             try {
-                autojs.global.toastLog('正在发送 POST JSON 请求...');
+                richauto.global.toastLog('正在发送 POST JSON 请求...');
                 
-                const response = await autojs.http.postJson('http://httpbin.org/post', {
+                const response = await richauto.http.postJson('http://httpbin.org/post', {
                     name: 'AutoJS6',
                     version: '6.0.0',
                     features: ['自动化', 'WebView', 'HTTP'],
@@ -203,15 +203,15 @@ export default {
                 this.lastResponse = response;
                 
                 if (response.statusCode === 200) {
-                    autojs.global.toastLog('POST JSON 请求成功!');
+                    richauto.global.toastLog('POST JSON 请求成功!');
                     if (response.bodyJson) {
                         console.log('服务器接收到的 JSON:', response.bodyJson.json);
                     }
                 } else {
-                    autojs.global.toastLog('请求失败: ' + response.statusCode);
+                    richauto.global.toastLog('请求失败: ' + response.statusCode);
                 }
             } catch (err) {
-                autojs.global.toastLog('请求失败: ' + err);
+                richauto.global.toastLog('请求失败: ' + err);
             }
         },
         
@@ -220,35 +220,35 @@ export default {
         // 测试自定义 URL
         async testCustomUrl() {
             if (!this.testUrl) {
-                autojs.global.toastLog('请输入测试 URL');
+                richauto.global.toastLog('请输入测试 URL');
                 return;
             }
             
             try {
-                autojs.global.toastLog('正在请求: ' + this.testUrl);
+                richauto.global.toastLog('正在请求: ' + this.testUrl);
                 
-                const response = await autojs.http.get(this.testUrl);
+                const response = await richauto.http.get(this.testUrl);
                 this.lastResponse = response;
                 
                 if (response.statusCode === 200) {
-                    autojs.global.toastLog('请求成功!');
+                    richauto.global.toastLog('请求成功!');
                 } else {
-                    autojs.global.toastLog('状态码: ' + response.statusCode);
+                    richauto.global.toastLog('状态码: ' + response.statusCode);
                 }
             } catch (err) {
-                autojs.global.toastLog('请求失败: ' + err);
+                richauto.global.toastLog('请求失败: ' + err);
             }
         },
         
         // 测试 JSON API
         async testJsonApi() {
             if (!this.jsonApiUrl) {
-                autojs.global.toastLog('请输入 API URL');
+                richauto.global.toastLog('请输入 API URL');
                 return;
             }
             
             try {
-                autojs.global.toastLog('正在发送 JSON 请求...');
+                richauto.global.toastLog('正在发送 JSON 请求...');
                 
                 // 解析 JSON 数据
                 let data = {};
@@ -256,21 +256,21 @@ export default {
                     try {
                         data = JSON.parse(this.jsonApiData);
                     } catch (e) {
-                        autojs.global.toastLog('JSON 格式错误: ' + e.message);
+                        richauto.global.toastLog('JSON 格式错误: ' + e.message);
                         return;
                     }
                 }
                 
-                const response = await autojs.http.postJson(this.jsonApiUrl, data);
+                const response = await richauto.http.postJson(this.jsonApiUrl, data);
                 this.lastResponse = response;
                 
                 if (response.statusCode === 200) {
-                    autojs.global.toastLog('请求成功!');
+                    richauto.global.toastLog('请求成功!');
                 } else {
-                    autojs.global.toastLog('状态码: ' + response.statusCode);
+                    richauto.global.toastLog('状态码: ' + response.statusCode);
                 }
             } catch (err) {
-                autojs.global.toastLog('请求失败: ' + err);
+                richauto.global.toastLog('请求失败: ' + err);
             }
         },
         
@@ -279,7 +279,7 @@ export default {
         // 显示响应体
         showResponseBody() {
             if (!this.lastResponse || !this.lastResponse.body) {
-                autojs.global.toastLog('没有响应内容');
+                richauto.global.toastLog('没有响应内容');
                 return;
             }
             
@@ -302,7 +302,7 @@ export default {
         // 复制响应内容
         copyResponse() {
             if (!this.lastResponse || !this.lastResponse.body) {
-                autojs.global.toastLog('没有可复制的内容');
+                richauto.global.toastLog('没有可复制的内容');
                 return;
             }
             
@@ -314,12 +314,12 @@ export default {
             
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(content).then(() => {
-                    autojs.global.toastLog('已复制到剪贴板');
+                    richauto.global.toastLog('已复制到剪贴板');
                 }).catch(() => {
-                    autojs.global.toastLog('复制失败');
+                    richauto.global.toastLog('复制失败');
                 });
             } else {
-                autojs.global.toastLog('浏览器不支持剪贴板操作');
+                richauto.global.toastLog('浏览器不支持剪贴板操作');
             }
         }
     }

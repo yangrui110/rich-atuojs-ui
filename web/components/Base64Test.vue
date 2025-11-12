@@ -148,23 +148,23 @@ export default {
         
         async testEncode() {
             if (!this.encodeInput) {
-                autojs.global.toastLog('请输入要编码的文本');
+                richauto.global.toastLog('请输入要编码的文本');
                 return;
             }
             
             try {
                 const encoding = this.encodeEncoding || 'UTF-8';
-                const result = await autojs.base64.encode(this.encodeInput, encoding);
+                const result = await richauto.base64.encode(this.encodeInput, encoding);
                 
                 if (result.error) {
-                    autojs.global.toastLog('编码失败: ' + result.error);
+                    richauto.global.toastLog('编码失败: ' + result.error);
                     this.encodeResult = '';
                 } else {
                     this.encodeResult = result;
-                    autojs.global.toastLog('编码成功!');
+                    richauto.global.toastLog('编码成功!');
                 }
             } catch (err) {
-                autojs.global.toastLog('编码失败: ' + err);
+                richauto.global.toastLog('编码失败: ' + err);
                 console.error(err);
             }
         },
@@ -178,23 +178,23 @@ export default {
         
         async testDecode() {
             if (!this.decodeInput) {
-                autojs.global.toastLog('请输入要解码的 Base64 字符串');
+                richauto.global.toastLog('请输入要解码的 Base64 字符串');
                 return;
             }
             
             try {
                 const encoding = this.decodeEncoding || 'UTF-8';
-                const result = await autojs.base64.decode(this.decodeInput, encoding);
+                const result = await richauto.base64.decode(this.decodeInput, encoding);
                 
                 if (result.error) {
-                    autojs.global.toastLog('解码失败: ' + result.error);
+                    richauto.global.toastLog('解码失败: ' + result.error);
                     this.decodeResult = '';
                 } else {
                     this.decodeResult = result;
-                    autojs.global.toastLog('解码成功!');
+                    richauto.global.toastLog('解码成功!');
                 }
             } catch (err) {
-                autojs.global.toastLog('解码失败: ' + err);
+                richauto.global.toastLog('解码失败: ' + err);
                 console.error(err);
             }
         },
@@ -209,75 +209,75 @@ export default {
         async testSimpleString() {
             try {
                 const testStr = 'hello';
-                autojs.global.toastLog('测试字符串: ' + testStr);
+                richauto.global.toastLog('测试字符串: ' + testStr);
                 
-                const encoded = await autojs.base64.encode(testStr, 'UTF-8');
-                autojs.global.toastLog('编码结果: ' + encoded);
+                const encoded = await richauto.base64.encode(testStr, 'UTF-8');
+                richauto.global.toastLog('编码结果: ' + encoded);
                 
-                const decoded = await autojs.base64.decode(encoded, 'UTF-8');
-                autojs.global.toastLog('解码结果: ' + decoded);
+                const decoded = await richauto.base64.decode(encoded, 'UTF-8');
+                richauto.global.toastLog('解码结果: ' + decoded);
                 
                 if (decoded === testStr) {
-                    autojs.global.toastLog('✓ 可逆性测试通过!');
+                    richauto.global.toastLog('✓ 可逆性测试通过!');
                 } else {
-                    autojs.global.toastLog('✗ 可逆性测试失败!');
+                    richauto.global.toastLog('✗ 可逆性测试失败!');
                 }
                 
                 this.encodeInput = testStr;
                 this.encodeResult = encoded;
             } catch (err) {
-                autojs.global.toastLog('测试失败: ' + err);
+                richauto.global.toastLog('测试失败: ' + err);
             }
         },
         
         async testChineseString() {
             try {
                 const testStr = '简体中文';
-                autojs.global.toastLog('测试字符串: ' + testStr);
+                richauto.global.toastLog('测试字符串: ' + testStr);
                 
-                const encoded = await autojs.base64.encode(testStr, 'UTF-8');
-                autojs.global.toastLog('编码结果: ' + encoded);
+                const encoded = await richauto.base64.encode(testStr, 'UTF-8');
+                richauto.global.toastLog('编码结果: ' + encoded);
                 
-                const decoded = await autojs.base64.decode(encoded, 'UTF-8');
-                autojs.global.toastLog('解码结果: ' + decoded);
+                const decoded = await richauto.base64.decode(encoded, 'UTF-8');
+                richauto.global.toastLog('解码结果: ' + decoded);
                 
                 if (decoded === testStr) {
-                    autojs.global.toastLog('✓ 中文可逆性测试通过!');
+                    richauto.global.toastLog('✓ 中文可逆性测试通过!');
                 } else {
-                    autojs.global.toastLog('✗ 中文可逆性测试失败!');
+                    richauto.global.toastLog('✗ 中文可逆性测试失败!');
                 }
                 
                 this.encodeInput = testStr;
                 this.encodeResult = encoded;
             } catch (err) {
-                autojs.global.toastLog('测试失败: ' + err);
+                richauto.global.toastLog('测试失败: ' + err);
             }
         },
         
         async testDifferentEncodings() {
             try {
                 const testStr = 'hello';
-                autojs.global.toastLog('测试不同编码方式...');
+                richauto.global.toastLog('测试不同编码方式...');
                 
                 const encodings = ['UTF-8', 'UTF-16', 'UTF-16BE', 'UTF-16LE', 'US-ASCII', 'ISO-8859-1'];
                 let results = [];
                 
                 for (let encoding of encodings) {
-                    const encoded = await autojs.base64.encode(testStr, encoding);
+                    const encoded = await richauto.base64.encode(testStr, encoding);
                     results.push(encoding + ': ' + encoded);
                 }
                 
                 console.log('不同编码的结果:');
                 results.forEach(r => console.log(r));
-                autojs.global.toastLog('测试完成，请查看控制台');
+                richauto.global.toastLog('测试完成，请查看控制台');
             } catch (err) {
-                autojs.global.toastLog('测试失败: ' + err);
+                richauto.global.toastLog('测试失败: ' + err);
             }
         },
         
         async testReversibility() {
             try {
-                autojs.global.toastLog('测试可逆性...');
+                richauto.global.toastLog('测试可逆性...');
                 
                 const tests = [
                     { text: 'orange', encoding: 'UTF-8' },
@@ -289,8 +289,8 @@ export default {
                 let allPassed = true;
                 
                 for (let test of tests) {
-                    const encoded = await autojs.base64.encode(test.text, test.encoding);
-                    const decoded = await autojs.base64.decode(encoded, test.encoding);
+                    const encoded = await richauto.base64.encode(test.text, test.encoding);
+                    const decoded = await richauto.base64.decode(encoded, test.encoding);
                     
                     const passed = decoded === test.text;
                     allPassed = allPassed && passed;
@@ -302,12 +302,12 @@ export default {
                 }
                 
                 if (allPassed) {
-                    autojs.global.toastLog('✓ 所有可逆性测试通过!');
+                    richauto.global.toastLog('✓ 所有可逆性测试通过!');
                 } else {
-                    autojs.global.toastLog('✗ 部分可逆性测试失败');
+                    richauto.global.toastLog('✗ 部分可逆性测试失败');
                 }
             } catch (err) {
-                autojs.global.toastLog('测试失败: ' + err);
+                richauto.global.toastLog('测试失败: ' + err);
             }
         },
         
@@ -315,33 +315,33 @@ export default {
         
         encodeToDecodeTransfer() {
             if (!this.encodeResult) {
-                autojs.global.toastLog('没有编码结果可以传递');
+                richauto.global.toastLog('没有编码结果可以传递');
                 return;
             }
             this.decodeInput = this.encodeResult;
             this.decodeEncoding = this.encodeEncoding;
-            autojs.global.toastLog('已将编码结果传递到解码输入');
+            richauto.global.toastLog('已将编码结果传递到解码输入');
         },
         
         decodeToEncodeTransfer() {
             if (!this.decodeResult) {
-                autojs.global.toastLog('没有解码结果可以传递');
+                richauto.global.toastLog('没有解码结果可以传递');
                 return;
             }
             this.encodeInput = this.decodeResult;
             this.encodeEncoding = this.decodeEncoding;
-            autojs.global.toastLog('已将解码结果传递到编码输入');
+            richauto.global.toastLog('已将解码结果传递到编码输入');
         },
         
         copyToClipboard(text) {
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(text).then(() => {
-                    autojs.global.toastLog('已复制到剪贴板');
+                    richauto.global.toastLog('已复制到剪贴板');
                 }).catch(() => {
-                    autojs.global.toastLog('复制失败');
+                    richauto.global.toastLog('复制失败');
                 });
             } else {
-                autojs.global.toastLog('浏览器不支持剪贴板操作');
+                richauto.global.toastLog('浏览器不支持剪贴板操作');
             }
         },
         

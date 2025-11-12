@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     /**
      * FloatyWindow 类 - 封装悬浮窗实例操作
@@ -21,7 +21,7 @@
      * @returns {Promise<boolean>}
      */
     FloatyWindow.prototype.setAdjustEnabled = function(enabled) {
-        return $autojs.invoke('floaty.setAdjustEnabled', this.instanceId, enabled);
+        return $richauto.invoke('floaty.setAdjustEnabled', this.instanceId, enabled);
     };
     
     /**
@@ -31,7 +31,7 @@
      * @returns {Promise<boolean>}
      */
     FloatyWindow.prototype.setPosition = function(x, y) {
-        return $autojs.invoke('floaty.setPosition', this.instanceId, x, y);
+        return $richauto.invoke('floaty.setPosition', this.instanceId, x, y);
     };
     
     /**
@@ -39,7 +39,7 @@
      * @returns {Promise<number>}
      */
     FloatyWindow.prototype.getX = function() {
-        return $autojs.invoke('floaty.getX', this.instanceId);
+        return $richauto.invoke('floaty.getX', this.instanceId);
     };
     
     /**
@@ -47,7 +47,7 @@
      * @returns {Promise<number>}
      */
     FloatyWindow.prototype.getY = function() {
-        return $autojs.invoke('floaty.getY', this.instanceId);
+        return $richauto.invoke('floaty.getY', this.instanceId);
     };
     
     /**
@@ -57,7 +57,7 @@
      * @returns {Promise<boolean>}
      */
     FloatyWindow.prototype.setSize = function(width, height) {
-        return $autojs.invoke('floaty.setSize', this.instanceId, width, height);
+        return $richauto.invoke('floaty.setSize', this.instanceId, width, height);
     };
     
     /**
@@ -65,7 +65,7 @@
      * @returns {Promise<number>}
      */
     FloatyWindow.prototype.getWidth = function() {
-        return $autojs.invoke('floaty.getWidth', this.instanceId);
+        return $richauto.invoke('floaty.getWidth', this.instanceId);
     };
     
     /**
@@ -73,7 +73,7 @@
      * @returns {Promise<number>}
      */
     FloatyWindow.prototype.getHeight = function() {
-        return $autojs.invoke('floaty.getHeight', this.instanceId);
+        return $richauto.invoke('floaty.getHeight', this.instanceId);
     };
     
     /**
@@ -81,7 +81,7 @@
      * @returns {Promise<boolean>}
      */
     FloatyWindow.prototype.close = function() {
-        return $autojs.invoke('floaty.close', this.instanceId);
+        return $richauto.invoke('floaty.close', this.instanceId);
     };
     
     /**
@@ -89,7 +89,7 @@
      * @returns {Promise<boolean>}
      */
     FloatyWindow.prototype.exitOnClose = function() {
-        return $autojs.invoke('floaty.exitOnClose', this.instanceId);
+        return $richauto.invoke('floaty.exitOnClose', this.instanceId);
     };
     
     // Floaty 模块定义
@@ -109,7 +109,7 @@
          * @returns {Promise<FloatyWindow>}
          */
         window: function(layout, options) {
-            return $autojs.invoke('floaty.window', layout, options).then(function(instanceId) {
+            return $richauto.invoke('floaty.window', layout, options).then(function(instanceId) {
                 if (!instanceId) {
                     throw new Error('创建悬浮窗失败');
                 }
@@ -122,12 +122,12 @@
          * @returns {Promise<boolean>}
          */
         closeAll: function() {
-            return $autojs.invoke('floaty.closeAll');
+            return $richauto.invoke('floaty.closeAll');
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.floaty = floatyModule;
+    window.__richauto_modules.floaty = floatyModule;
     
 })(window);
 

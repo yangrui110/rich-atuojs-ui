@@ -73,8 +73,8 @@ export default {
         
         async testGetLanguage() {
             try {
-                const language = await autojs.getLanguage();
-                autojs.global.toastLog(
+                const language = await richauto.getLanguage();
+                richauto.global.toastLog(
                     `语言对象信息:\n` +
                     `语言标签: ${language.languageTag}\n` +
                     `显示名称: ${language.displayName}\n` +
@@ -82,16 +82,16 @@ export default {
                     `国家: ${language.country}`
                 );
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async testGetLanguageTag() {
             try {
-                const tag = await autojs.getLanguageTag();
-                autojs.global.toastLog(`语言标签: ${tag}`);
+                const tag = await richauto.getLanguageTag();
+                richauto.global.toastLog(`语言标签: ${tag}`);
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
@@ -99,31 +99,31 @@ export default {
         
         async testIsRootAvailable() {
             try {
-                const isAvailable = await autojs.isRootAvailable();
-                autojs.global.toastLog(`Root 权限可用: ${isAvailable ? '是' : '否'}`);
+                const isAvailable = await richauto.isRootAvailable();
+                richauto.global.toastLog(`Root 权限可用: ${isAvailable ? '是' : '否'}`);
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async testGetRootMode() {
             try {
-                const mode = await autojs.getRootMode();
+                const mode = await richauto.getRootMode();
                 const modeMap = {
                     'AUTO_DETECT': '自动检测',
                     'FORCE_ROOT': '强制 Root 模式',
                     'FORCE_NON_ROOT': '强制非 Root 模式'
                 };
-                autojs.global.toastLog(`Root 模式: ${modeMap[mode] || mode}`);
+                richauto.global.toastLog(`Root 模式: ${modeMap[mode] || mode}`);
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async testSetRootMode(mode) {
             try {
-                const result = await autojs.setRootMode(mode, false);
-                const currentMode = await autojs.getRootMode();
+                const result = await richauto.setRootMode(mode, false);
+                const currentMode = await richauto.getRootMode();
                 const modeMap = {
                     'auto': '自动检测',
                     'root': '强制 Root 模式',
@@ -132,12 +132,12 @@ export default {
                     'FORCE_ROOT': '强制 Root 模式',
                     'FORCE_NON_ROOT': '强制非 Root 模式'
                 };
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `设置结果: ${result ? '成功' : '失败'}\n` +
                     `当前模式: ${modeMap[currentMode] || currentMode}`
                 );
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
@@ -145,39 +145,39 @@ export default {
         
         async testCanModifySystemSettings() {
             try {
-                const can = await autojs.canModifySystemSettings();
-                autojs.global.toastLog(`修改系统设置权限: ${can ? '已授予' : '未授予'}`);
+                const can = await richauto.canModifySystemSettings();
+                richauto.global.toastLog(`修改系统设置权限: ${can ? '已授予' : '未授予'}`);
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async testCanWriteSecureSettings() {
             try {
-                const can = await autojs.canWriteSecureSettings();
-                autojs.global.toastLog(`修改安全设置权限: ${can ? '已授予' : '未授予'}`);
+                const can = await richauto.canWriteSecureSettings();
+                richauto.global.toastLog(`修改安全设置权限: ${can ? '已授予' : '未授予'}`);
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async testCanDisplayOverOtherApps() {
             try {
-                const can = await autojs.canDisplayOverOtherApps();
-                autojs.global.toastLog(`显示在其他应用上层权限: ${can ? '已授予' : '未授予'}`);
+                const can = await richauto.canDisplayOverOtherApps();
+                richauto.global.toastLog(`显示在其他应用上层权限: ${can ? '已授予' : '未授予'}`);
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async testAllPermissions() {
             try {
-                const root = await autojs.isRootAvailable();
-                const systemSettings = await autojs.canModifySystemSettings();
-                const secureSettings = await autojs.canWriteSecureSettings();
-                const overlay = await autojs.canDisplayOverOtherApps();
+                const root = await richauto.isRootAvailable();
+                const systemSettings = await richauto.canModifySystemSettings();
+                const secureSettings = await richauto.canWriteSecureSettings();
+                const overlay = await richauto.canDisplayOverOtherApps();
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `权限状态:\n` +
                     `Root 权限: ${root ? '✓' : '✗'}\n` +
                     `修改系统设置: ${systemSettings ? '✓' : '✗'}\n` +
@@ -185,7 +185,7 @@ export default {
                     `悬浮窗显示: ${overlay ? '✓' : '✗'}`
                 );
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
@@ -193,31 +193,31 @@ export default {
         
         async testVersionInfo() {
             try {
-                const versionName = await autojs.versionName;
-                const versionCode = await autojs.versionCode;
-                const versionDate = await autojs.versionDate;
+                const versionName = await richauto.versionName;
+                const versionCode = await richauto.versionCode;
+                const versionDate = await richauto.versionDate;
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `版本信息:\n` +
                     `版本名称: ${versionName}\n` +
                     `版本号: ${versionCode}\n` +
                     `版本日期: ${versionDate}`
                 );
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async testVersionComparison() {
             try {
-                const currentVersion = await autojs.version.name;
+                const currentVersion = await richauto.version.name;
                 
-                const isEqual620 = await autojs.version.isEqual('6.2.0');
-                const isHigher610 = await autojs.version.isHigherThan('6.1.0');
-                const isLower700 = await autojs.version.isLowerThan('7.0.0');
-                const isAtLeast620 = await autojs.version.isAtLeast('6.2.0', true);
+                const isEqual620 = await richauto.version.isEqual('6.2.0');
+                const isHigher610 = await richauto.version.isHigherThan('6.1.0');
+                const isLower700 = await richauto.version.isLowerThan('7.0.0');
+                const isAtLeast620 = await richauto.version.isAtLeast('6.2.0', true);
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `版本比较测试:\n` +
                     `当前版本: ${currentVersion}\n\n` +
                     `== 6.2.0: ${isEqual620 ? '是' : '否'}\n` +
@@ -226,7 +226,7 @@ export default {
                     `>= 6.2.0 (忽略后缀): ${isAtLeast620 ? '是' : '否'}`
                 );
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
@@ -234,9 +234,9 @@ export default {
         
         async testThemeColor() {
             try {
-                const primary = await autojs.themeColor.getColorPrimary();
-                const primaryDark = await autojs.themeColor.getColorPrimaryDark();
-                const accent = await autojs.themeColor.getColorAccent();
+                const primary = await richauto.themeColor.getColorPrimary();
+                const primaryDark = await richauto.themeColor.getColorPrimaryDark();
+                const accent = await richauto.themeColor.getColorAccent();
                 
                 // 转换为 16 进制颜色
                 const toHex = (color) => {
@@ -244,20 +244,20 @@ export default {
                     return `#${hex.substring(2)}${hex.substring(0, 2)}`;  // ARGB -> #RRGGBB
                 };
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `主题色:\n` +
                     `Primary: ${toHex(primary)}\n` +
                     `Primary Dark: ${toHex(primaryDark)}\n` +
                     `Accent: ${toHex(accent)}`
                 );
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
         async applyThemeColor() {
             try {
-                const primary = await autojs.themeColor.getColorPrimary();
+                const primary = await richauto.themeColor.getColorPrimary();
                 const toHex = (color) => {
                     const hex = (color >>> 0).toString(16).padStart(8, '0');
                     return `#${hex.substring(2)}${hex.substring(0, 2)}`;
@@ -267,9 +267,9 @@ export default {
                 // 应用到页面元素（示例）
                 document.body.style.setProperty('--primary-color', colorHex);
                 
-                autojs.global.toastLog(`主题色 ${colorHex} 已应用到页面`);
+                richauto.global.toastLog(`主题色 ${colorHex} 已应用到页面`);
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
         
@@ -278,15 +278,15 @@ export default {
         async testRResources() {
             try {
                 // 测试获取字符串资源
-                const appName = await autojs.R.string('app_name');
+                const appName = await richauto.R.string('app_name');
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `R 资源测试:\n` +
                     `app_name 字符串: ${appName || '未找到'}\n\n` +
                     `注意: 需要根据 AutoJS6 的实际资源名称调用`
                 );
             } catch (e) {
-                autojs.global.toastLog(`错误: ${e.message}`);
+                richauto.global.toastLog(`错误: ${e.message}`);
             }
         },
     }

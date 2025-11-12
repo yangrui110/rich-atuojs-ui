@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // HTTP 模块定义
     var httpModule = {
@@ -27,10 +27,10 @@
             
             if (callback) {
                 // 异步模式
-                return $autojs.invoke('http.get', url, options, callback);
+                return $richauto.invoke('http.get', url, options, callback);
             } else {
                 // 同步模式（返回 Promise）
-                return $autojs.invoke('http.get', url, options);
+                return $richauto.invoke('http.get', url, options);
             }
         },
         
@@ -52,10 +52,10 @@
             
             if (callback) {
                 // 异步模式
-                return $autojs.invoke('http.post', url, data, options, callback);
+                return $richauto.invoke('http.post', url, data, options, callback);
             } else {
                 // 同步模式（返回 Promise）
-                return $autojs.invoke('http.post', url, data, options);
+                return $richauto.invoke('http.post', url, data, options);
             }
         },
         
@@ -82,10 +82,10 @@
             
             if (callback) {
                 // 异步模式
-                return $autojs.invoke('http.postJson', url, data, options, callback);
+                return $richauto.invoke('http.postJson', url, data, options, callback);
             } else {
                 // 同步模式（返回 Promise）
-                return $autojs.invoke('http.postJson', url, data, options);
+                return $richauto.invoke('http.postJson', url, data, options);
             }
         },
         
@@ -107,10 +107,10 @@
             
             if (callback) {
                 // 异步模式
-                return $autojs.invoke('http.postMultipart', url, files, options, callback);
+                return $richauto.invoke('http.postMultipart', url, files, options, callback);
             } else {
                 // 同步模式（返回 Promise）
-                return $autojs.invoke('http.postMultipart', url, files, options);
+                return $richauto.invoke('http.postMultipart', url, files, options);
             }
         },
         
@@ -131,16 +131,16 @@
             
             if (callback) {
                 // 异步模式
-                return $autojs.invoke('http.request', url, options, callback);
+                return $richauto.invoke('http.request', url, options, callback);
             } else {
                 // 同步模式（返回 Promise）
-                return $autojs.invoke('http.request', url, options);
+                return $richauto.invoke('http.request', url, options);
             }
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.http = httpModule;
+    window.__richauto_modules.http = httpModule;
     
 })(window);
 

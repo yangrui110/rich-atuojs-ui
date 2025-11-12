@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Keys 模块定义
     var keysModule = {
@@ -17,7 +17,7 @@
          * @returns {Promise<boolean>} 是否执行成功
          */
         back: function() {
-            return $autojs.invoke('keys.back');
+            return $richauto.invoke('keys.back');
         },
         
         /**
@@ -25,7 +25,7 @@
          * @returns {Promise<boolean>} 是否执行成功
          */
         home: function() {
-            return $autojs.invoke('keys.home');
+            return $richauto.invoke('keys.home');
         },
         
         /**
@@ -33,7 +33,7 @@
          * @returns {Promise<boolean>} 是否执行成功
          */
         powerDialog: function() {
-            return $autojs.invoke('keys.powerDialog');
+            return $richauto.invoke('keys.powerDialog');
         },
         
         /**
@@ -41,7 +41,7 @@
          * @returns {Promise<boolean>} 是否执行成功
          */
         notifications: function() {
-            return $autojs.invoke('keys.notifications');
+            return $richauto.invoke('keys.notifications');
         },
         
         /**
@@ -49,7 +49,7 @@
          * @returns {Promise<boolean>} 是否执行成功
          */
         quickSettings: function() {
-            return $autojs.invoke('keys.quickSettings');
+            return $richauto.invoke('keys.quickSettings');
         },
         
         /**
@@ -57,7 +57,7 @@
          * @returns {Promise<boolean>} 是否执行成功
          */
         recents: function() {
-            return $autojs.invoke('keys.recents');
+            return $richauto.invoke('keys.recents');
         },
         
         /**
@@ -65,7 +65,7 @@
          * @returns {Promise<boolean>} 是否执行成功
          */
         splitScreen: function() {
-            return $autojs.invoke('keys.splitScreen');
+            return $richauto.invoke('keys.splitScreen');
         },
         
         // ==================== 基于 Root 权限的按键模拟 ====================
@@ -75,7 +75,7 @@
          * @returns {Promise<void>}
          */
         Home: function() {
-            return $autojs.invoke('keys.Home');
+            return $richauto.invoke('keys.Home');
         },
         
         /**
@@ -83,7 +83,7 @@
          * @returns {Promise<void>}
          */
         Back: function() {
-            return $autojs.invoke('keys.Back');
+            return $richauto.invoke('keys.Back');
         },
         
         /**
@@ -91,7 +91,7 @@
          * @returns {Promise<void>}
          */
         Power: function() {
-            return $autojs.invoke('keys.Power');
+            return $richauto.invoke('keys.Power');
         },
         
         /**
@@ -99,7 +99,7 @@
          * @returns {Promise<void>}
          */
         Menu: function() {
-            return $autojs.invoke('keys.Menu');
+            return $richauto.invoke('keys.Menu');
         },
         
         /**
@@ -107,7 +107,7 @@
          * @returns {Promise<void>}
          */
         VolumeUp: function() {
-            return $autojs.invoke('keys.VolumeUp');
+            return $richauto.invoke('keys.VolumeUp');
         },
         
         /**
@@ -115,7 +115,7 @@
          * @returns {Promise<void>}
          */
         VolumeDown: function() {
-            return $autojs.invoke('keys.VolumeDown');
+            return $richauto.invoke('keys.VolumeDown');
         },
         
         /**
@@ -123,7 +123,7 @@
          * @returns {Promise<void>}
          */
         Camera: function() {
-            return $autojs.invoke('keys.Camera');
+            return $richauto.invoke('keys.Camera');
         },
         
         /**
@@ -131,7 +131,7 @@
          * @returns {Promise<void>}
          */
         Up: function() {
-            return $autojs.invoke('keys.Up');
+            return $richauto.invoke('keys.Up');
         },
         
         /**
@@ -139,7 +139,7 @@
          * @returns {Promise<void>}
          */
         Down: function() {
-            return $autojs.invoke('keys.Down');
+            return $richauto.invoke('keys.Down');
         },
         
         /**
@@ -147,7 +147,7 @@
          * @returns {Promise<void>}
          */
         Left: function() {
-            return $autojs.invoke('keys.Left');
+            return $richauto.invoke('keys.Left');
         },
         
         /**
@@ -155,7 +155,7 @@
          * @returns {Promise<void>}
          */
         Right: function() {
-            return $autojs.invoke('keys.Right');
+            return $richauto.invoke('keys.Right');
         },
         
         /**
@@ -163,7 +163,7 @@
          * @returns {Promise<void>}
          */
         OK: function() {
-            return $autojs.invoke('keys.OK');
+            return $richauto.invoke('keys.OK');
         },
         
         /**
@@ -172,7 +172,7 @@
          * @returns {Promise<void>}
          */
         Text: function(text) {
-            return $autojs.invoke('keys.Text', text);
+            return $richauto.invoke('keys.Text', text);
         },
         
         /**
@@ -181,12 +181,12 @@
          * @returns {Promise<void>}
          */
         KeyCode: function(code) {
-            return $autojs.invoke('keys.KeyCode', code);
+            return $richauto.invoke('keys.KeyCode', code);
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.keys = keysModule;
+    window.__richauto_modules.keys = keysModule;
     
 })(window);
 

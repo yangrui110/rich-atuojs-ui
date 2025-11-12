@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Base64 模块定义
     var base64Module = {
@@ -18,7 +18,7 @@
          */
         encode: function(data, encoding) {
             encoding = encoding || 'UTF-8';
-            return $autojs.invoke('base64.encode', data, encoding);
+            return $richauto.invoke('base64.encode', data, encoding);
         },
         
         /**
@@ -29,12 +29,12 @@
          */
         decode: function(data, encoding) {
             encoding = encoding || 'UTF-8';
-            return $autojs.invoke('base64.decode', data, encoding);
+            return $richauto.invoke('base64.decode', data, encoding);
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.base64 = base64Module;
+    window.__richauto_modules.base64 = base64Module;
     
 })(window);
 

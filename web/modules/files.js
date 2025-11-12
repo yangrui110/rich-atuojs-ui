@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Files 模块定义
     var filesModule = {
@@ -18,7 +18,7 @@
          * @returns {Promise<boolean>}
          */
         isFile: function(path) {
-            return $autojs.invoke('files.isFile', path);
+            return $richauto.invoke('files.isFile', path);
         },
         
         /**
@@ -27,7 +27,7 @@
          * @returns {Promise<boolean>}
          */
         isDir: function(path) {
-            return $autojs.invoke('files.isDir', path);
+            return $richauto.invoke('files.isDir', path);
         },
         
         /**
@@ -36,7 +36,7 @@
          * @returns {Promise<boolean>}
          */
         isEmptyDir: function(path) {
-            return $autojs.invoke('files.isEmptyDir', path);
+            return $richauto.invoke('files.isEmptyDir', path);
         },
         
         // ==================== 路径操作 ====================
@@ -48,7 +48,7 @@
          * @returns {Promise<string>}
          */
         join: function(parent, child) {
-            return $autojs.invoke('files.join', parent, child);
+            return $richauto.invoke('files.join', parent, child);
         },
         
         /**
@@ -57,7 +57,7 @@
          * @returns {Promise<string>}
          */
         getName: function(path) {
-            return $autojs.invoke('files.getName', path);
+            return $richauto.invoke('files.getName', path);
         },
         
         /**
@@ -66,7 +66,7 @@
          * @returns {Promise<string>}
          */
         getNameWithoutExtension: function(path) {
-            return $autojs.invoke('files.getNameWithoutExtension', path);
+            return $richauto.invoke('files.getNameWithoutExtension', path);
         },
         
         /**
@@ -75,7 +75,7 @@
          * @returns {Promise<string>}
          */
         getExtension: function(path) {
-            return $autojs.invoke('files.getExtension', path);
+            return $richauto.invoke('files.getExtension', path);
         },
         
         /**
@@ -83,7 +83,7 @@
          * @returns {Promise<string>}
          */
         getSdcardPath: function() {
-            return $autojs.invoke('files.getSdcardPath');
+            return $richauto.invoke('files.getSdcardPath');
         },
         
         /**
@@ -91,7 +91,7 @@
          * @returns {Promise<string>}
          */
         cwd: function() {
-            return $autojs.invoke('files.cwd');
+            return $richauto.invoke('files.cwd');
         },
         
         /**
@@ -100,7 +100,7 @@
          * @returns {Promise<string>}
          */
         path: function(relativePath) {
-            return $autojs.invoke('files.path', relativePath);
+            return $richauto.invoke('files.path', relativePath);
         },
         
         // ==================== 文件创建与存在性检查 ====================
@@ -111,7 +111,7 @@
          * @returns {Promise<boolean>}
          */
         create: function(path) {
-            return $autojs.invoke('files.create', path);
+            return $richauto.invoke('files.create', path);
         },
         
         /**
@@ -120,7 +120,7 @@
          * @returns {Promise<boolean>}
          */
         createWithDirs: function(path) {
-            return $autojs.invoke('files.createWithDirs', path);
+            return $richauto.invoke('files.createWithDirs', path);
         },
         
         /**
@@ -129,7 +129,7 @@
          * @returns {Promise<boolean>}
          */
         exists: function(path) {
-            return $autojs.invoke('files.exists', path);
+            return $richauto.invoke('files.exists', path);
         },
         
         /**
@@ -138,7 +138,7 @@
          * @returns {Promise<void>}
          */
         ensureDir: function(path) {
-            return $autojs.invoke('files.ensureDir', path);
+            return $richauto.invoke('files.ensureDir', path);
         },
         
         // ==================== 文件读取 ====================
@@ -150,7 +150,7 @@
          * @returns {Promise<string>}
          */
         read: function(path, encoding) {
-            return $autojs.invoke('files.read', path, encoding || 'utf-8');
+            return $richauto.invoke('files.read', path, encoding || 'utf-8');
         },
         
         /**
@@ -159,7 +159,7 @@
          * @returns {Promise<Array<number>>}
          */
         readBytes: function(path) {
-            return $autojs.invoke('files.readBytes', path);
+            return $richauto.invoke('files.readBytes', path);
         },
         
         // ==================== 文件写入 ====================
@@ -172,7 +172,7 @@
          * @returns {Promise<boolean>}
          */
         write: function(path, text, encoding) {
-            return $autojs.invoke('files.write', path, text, encoding || 'utf-8');
+            return $richauto.invoke('files.write', path, text, encoding || 'utf-8');
         },
         
         /**
@@ -182,7 +182,7 @@
          * @returns {Promise<boolean>}
          */
         writeBytes: function(path, bytes) {
-            return $autojs.invoke('files.writeBytes', path, bytes);
+            return $richauto.invoke('files.writeBytes', path, bytes);
         },
         
         /**
@@ -193,7 +193,7 @@
          * @returns {Promise<boolean>}
          */
         append: function(path, text, encoding) {
-            return $autojs.invoke('files.append', path, text, encoding || 'utf-8');
+            return $richauto.invoke('files.append', path, text, encoding || 'utf-8');
         },
         
         /**
@@ -203,7 +203,7 @@
          * @returns {Promise<boolean>}
          */
         appendBytes: function(path, bytes) {
-            return $autojs.invoke('files.appendBytes', path, bytes);
+            return $richauto.invoke('files.appendBytes', path, bytes);
         },
         
         // ==================== 文件操作 ====================
@@ -215,7 +215,7 @@
          * @returns {Promise<boolean>}
          */
         copy: function(fromPath, toPath) {
-            return $autojs.invoke('files.copy', fromPath, toPath);
+            return $richauto.invoke('files.copy', fromPath, toPath);
         },
         
         /**
@@ -225,7 +225,7 @@
          * @returns {Promise<boolean>}
          */
         move: function(fromPath, toPath) {
-            return $autojs.invoke('files.move', fromPath, toPath);
+            return $richauto.invoke('files.move', fromPath, toPath);
         },
         
         /**
@@ -235,7 +235,7 @@
          * @returns {Promise<boolean>}
          */
         rename: function(path, newName) {
-            return $autojs.invoke('files.rename', path, newName);
+            return $richauto.invoke('files.rename', path, newName);
         },
         
         /**
@@ -245,7 +245,7 @@
          * @returns {Promise<boolean>}
          */
         renameWithoutExtension: function(path, newName) {
-            return $autojs.invoke('files.renameWithoutExtension', path, newName);
+            return $richauto.invoke('files.renameWithoutExtension', path, newName);
         },
         
         /**
@@ -254,7 +254,7 @@
          * @returns {Promise<boolean>}
          */
         remove: function(path) {
-            return $autojs.invoke('files.remove', path);
+            return $richauto.invoke('files.remove', path);
         },
         
         /**
@@ -263,7 +263,7 @@
          * @returns {Promise<boolean>}
          */
         removeDir: function(path) {
-            return $autojs.invoke('files.removeDir', path);
+            return $richauto.invoke('files.removeDir', path);
         },
         
         // ==================== 目录列表 ====================
@@ -274,12 +274,12 @@
          * @returns {Promise<Array<string>>}
          */
         listDir: function(path) {
-            return $autojs.invoke('files.listDir', path);
+            return $richauto.invoke('files.listDir', path);
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.files = filesModule;
+    window.__richauto_modules.files = filesModule;
     
 })(window);
 

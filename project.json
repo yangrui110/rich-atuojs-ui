@@ -16,6 +16,7 @@
     "permissions": [],
     "slug": "Powered by AutoJs6"
   },
+  "icon": "logo.png",
   "libs": [],
   "main": "ui.js",
   "name": "打包测试",

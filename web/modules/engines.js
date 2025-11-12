@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Engines 模块定义
     var enginesModule = {
@@ -24,7 +24,7 @@
          * @returns {Promise<Object>} 返回 ScriptExecution 对象的信息
          */
         execScript: function(name, script, config) {
-            return $autojs.invoke('engines.execScript', name, script, config || {});
+            return $richauto.invoke('engines.execScript', name, script, config || {});
         },
         
         /**
@@ -38,7 +38,7 @@
          * @returns {Promise<Object>} 返回 ScriptExecution 对象的信息
          */
         execScriptFile: function(path, config) {
-            return $autojs.invoke('engines.execScriptFile', path, config || {});
+            return $richauto.invoke('engines.execScriptFile', path, config || {});
         },
         
         /**
@@ -52,7 +52,7 @@
          * @returns {Promise<Object>} 返回 ScriptExecution 对象的信息
          */
         execAutoFile: function(path, config) {
-            return $autojs.invoke('engines.execAutoFile', path, config || {});
+            return $richauto.invoke('engines.execAutoFile', path, config || {});
         },
         
         // ==================== 脚本控制 ====================
@@ -62,7 +62,7 @@
          * @returns {Promise<void>}
          */
         stopAll: function() {
-            return $autojs.invoke('engines.stopAll');
+            return $richauto.invoke('engines.stopAll');
         },
         
         /**
@@ -70,7 +70,7 @@
          * @returns {Promise<void>}
          */
         stopAllAndToast: function() {
-            return $autojs.invoke('engines.stopAllAndToast');
+            return $richauto.invoke('engines.stopAllAndToast');
         },
         
         // ==================== 脚本引擎信息 ====================
@@ -80,7 +80,7 @@
          * @returns {Promise<Object>} 返回包含引擎信息的对象
          */
         myEngine: function() {
-            return $autojs.invoke('engines.myEngine');
+            return $richauto.invoke('engines.myEngine');
         },
         
         /**
@@ -88,7 +88,7 @@
          * @returns {Promise<Array>} 返回引擎信息数组
          */
         all: function() {
-            return $autojs.invoke('engines.all');
+            return $richauto.invoke('engines.all');
         },
         
         // ==================== ScriptEngine 对象 ====================
@@ -103,7 +103,7 @@
              * @returns {Promise<void>}
              */
             forceStop: function(engineId) {
-                return $autojs.invoke('engines.ScriptEngine.forceStop', engineId);
+                return $richauto.invoke('engines.ScriptEngine.forceStop', engineId);
             },
             
             /**
@@ -111,7 +111,7 @@
              * @returns {Promise<string>}
              */
             cwd: function() {
-                return $autojs.invoke('engines.ScriptEngine.cwd');
+                return $richauto.invoke('engines.ScriptEngine.cwd');
             },
             
             /**
@@ -119,7 +119,7 @@
              * @returns {Promise<Object>}
              */
             getSource: function() {
-                return $autojs.invoke('engines.ScriptEngine.getSource');
+                return $richauto.invoke('engines.ScriptEngine.getSource');
             },
             
             /**
@@ -130,13 +130,13 @@
              */
             emit: function() {
                 var args = ['engines.ScriptEngine.emit'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             }
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.engines = enginesModule;
+    window.__richauto_modules.engines = enginesModule;
     
 })(window);
 

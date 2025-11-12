@@ -75,46 +75,46 @@ export default {
         async testToInt() {
             try {
                 // 测试不同格式的颜色转换
-                const hexColor = await autojs.color.toInt('#FF5733');
-                autojs.global.toastLog(`Hex #FF5733 -> Int: ${hexColor}`);
+                const hexColor = await richauto.color.toInt('#FF5733');
+                richauto.global.toastLog(`Hex #FF5733 -> Int: ${hexColor}`);
                 
-                const shortHex = await autojs.color.toInt('#F57');
-                autojs.global.toastLog(`Short Hex #F57 -> Int: ${shortHex}`);
+                const shortHex = await richauto.color.toInt('#F57');
+                richauto.global.toastLog(`Short Hex #F57 -> Int: ${shortHex}`);
                 
-                const namedColor = await autojs.color.toInt('orange');
-                autojs.global.toastLog(`Named 'orange' -> Int: ${namedColor}`);
+                const namedColor = await richauto.color.toInt('orange');
+                richauto.global.toastLog(`Named 'orange' -> Int: ${namedColor}`);
             } catch (err) {
-                autojs.global.toastLog('toInt 测试失败: ' + err);
+                richauto.global.toastLog('toInt 测试失败: ' + err);
             }
         },
         
         // 测试 toHex
         async testToHex() {
             try {
-                const hex1 = await autojs.color.toHex('#FFCC5500');
-                autojs.global.toastLog(`#FFCC5500 -> ${hex1}`);
+                const hex1 = await richauto.color.toHex('#FFCC5500');
+                richauto.global.toastLog(`#FFCC5500 -> ${hex1}`);
                 
-                const hex2 = await autojs.color.toHex('#C50');
-                autojs.global.toastLog(`#C50 -> ${hex2}`);
+                const hex2 = await richauto.color.toHex('#C50');
+                richauto.global.toastLog(`#C50 -> ${hex2}`);
                 
-                const hex3 = await autojs.color.toHex('blue');
-                autojs.global.toastLog(`'blue' -> ${hex3}`);
+                const hex3 = await richauto.color.toHex('blue');
+                richauto.global.toastLog(`'blue' -> ${hex3}`);
                 
                 // 测试不同长度
-                const hex8 = await autojs.color.toHex('#663399', 8);
-                autojs.global.toastLog(`#663399 (长度8) -> ${hex8}`);
+                const hex8 = await richauto.color.toHex('#663399', 8);
+                richauto.global.toastLog(`#663399 (长度8) -> ${hex8}`);
             } catch (err) {
-                autojs.global.toastLog('toHex 测试失败: ' + err);
+                richauto.global.toastLog('toHex 测试失败: ' + err);
             }
         },
         
         // 测试 summary
         async testSummary() {
             try {
-                const summary = await autojs.color.summary('#BE009688');
-                autojs.global.toastLog(`颜色摘要: ${summary}`);
+                const summary = await richauto.color.summary('#BE009688');
+                richauto.global.toastLog(`颜色摘要: ${summary}`);
             } catch (err) {
-                autojs.global.toastLog('summary 测试失败: ' + err);
+                richauto.global.toastLog('summary 测试失败: ' + err);
             }
         },
         
@@ -124,14 +124,14 @@ export default {
         async testGetComponents() {
             try {
                 const color = '#BE663399';
-                const r = await autojs.color.red(color);
-                const g = await autojs.color.green(color);
-                const b = await autojs.color.blue(color);
-                const a = await autojs.color.alpha(color);
+                const r = await richauto.color.red(color);
+                const g = await richauto.color.green(color);
+                const b = await richauto.color.blue(color);
+                const a = await richauto.color.alpha(color);
                 
-                autojs.global.toastLog(`${color} 分量: R=${r}, G=${g}, B=${b}, A=${a}`);
+                richauto.global.toastLog(`${color} 分量: R=${r}, G=${g}, B=${b}, A=${a}`);
             } catch (err) {
-                autojs.global.toastLog('获取分量失败: ' + err);
+                richauto.global.toastLog('获取分量失败: ' + err);
             }
         },
         
@@ -141,15 +141,15 @@ export default {
                 const color = '#663399';
                 
                 // 设置不同的分量
-                const newColor1 = await autojs.color.setRed(color, 128);
-                const hex1 = await autojs.color.toHex(newColor1);
-                autojs.global.toastLog(`设置 R=128: ${hex1}`);
+                const newColor1 = await richauto.color.setRed(color, 128);
+                const hex1 = await richauto.color.toHex(newColor1);
+                richauto.global.toastLog(`设置 R=128: ${hex1}`);
                 
-                const newColor2 = await autojs.color.setAlpha(color, 0.5);
-                const hex2 = await autojs.color.toHex(newColor2, 8);
-                autojs.global.toastLog(`设置 A=0.5: ${hex2}`);
+                const newColor2 = await richauto.color.setAlpha(color, 0.5);
+                const hex2 = await richauto.color.toHex(newColor2, 8);
+                richauto.global.toastLog(`设置 A=0.5: ${hex2}`);
             } catch (err) {
-                autojs.global.toastLog('设置分量失败: ' + err);
+                richauto.global.toastLog('设置分量失败: ' + err);
             }
         },
         
@@ -158,37 +158,37 @@ export default {
         // 测试 RGB
         async testRgb() {
             try {
-                const color1 = await autojs.color.rgb(255, 128, 9);
-                const hex1 = await autojs.color.toHex(color1);
-                autojs.global.toastLog(`RGB(255,128,9) -> ${hex1}`);
+                const color1 = await richauto.color.rgb(255, 128, 9);
+                const hex1 = await richauto.color.toHex(color1);
+                richauto.global.toastLog(`RGB(255,128,9) -> ${hex1}`);
                 
-                const color2 = await autojs.color.rgb([255, 128, 9]);
-                const hex2 = await autojs.color.toHex(color2);
-                autojs.global.toastLog(`RGB数组 -> ${hex2}`);
+                const color2 = await richauto.color.rgb([255, 128, 9]);
+                const hex2 = await richauto.color.toHex(color2);
+                richauto.global.toastLog(`RGB数组 -> ${hex2}`);
             } catch (err) {
-                autojs.global.toastLog('RGB 测试失败: ' + err);
+                richauto.global.toastLog('RGB 测试失败: ' + err);
             }
         },
         
         // 测试 ARGB
         async testArgb() {
             try {
-                const color = await autojs.color.argb(128, 255, 128, 9);
-                const hex = await autojs.color.toHex(color, 8);
-                autojs.global.toastLog(`ARGB(128,255,128,9) -> ${hex}`);
+                const color = await richauto.color.argb(128, 255, 128, 9);
+                const hex = await richauto.color.toHex(color, 8);
+                richauto.global.toastLog(`ARGB(128,255,128,9) -> ${hex}`);
             } catch (err) {
-                autojs.global.toastLog('ARGB 测试失败: ' + err);
+                richauto.global.toastLog('ARGB 测试失败: ' + err);
             }
         },
         
         // 测试 HSV
         async testHsv() {
             try {
-                const color = await autojs.color.hsv(90, 0.8, 0.64);
-                const hex = await autojs.color.toHex(color);
-                autojs.global.toastLog(`HSV(90,0.8,0.64) -> ${hex}`);
+                const color = await richauto.color.hsv(90, 0.8, 0.64);
+                const hex = await richauto.color.toHex(color);
+                richauto.global.toastLog(`HSV(90,0.8,0.64) -> ${hex}`);
             } catch (err) {
-                autojs.global.toastLog('HSV 测试失败: ' + err);
+                richauto.global.toastLog('HSV 测试失败: ' + err);
             }
         },
         
@@ -197,23 +197,23 @@ export default {
         // 转换为 RGB
         async testToRgb() {
             try {
-                const rgb = await autojs.color.toRgb('#663399');
-                autojs.global.toastLog(`#663399 -> RGB: [${rgb.join(', ')}]`);
+                const rgb = await richauto.color.toRgb('#663399');
+                richauto.global.toastLog(`#663399 -> RGB: [${rgb.join(', ')}]`);
                 
-                const rgba = await autojs.color.toRgba('#BE663399');
-                autojs.global.toastLog(`#BE663399 -> RGBA: [${rgba.join(', ')}]`);
+                const rgba = await richauto.color.toRgba('#BE663399');
+                richauto.global.toastLog(`#BE663399 -> RGBA: [${rgba.join(', ')}]`);
             } catch (err) {
-                autojs.global.toastLog('toRgb 测试失败: ' + err);
+                richauto.global.toastLog('toRgb 测试失败: ' + err);
             }
         },
         
         // 转换为 HSV
         async testToHsv() {
             try {
-                const hsv = await autojs.color.toHsv('#663399');
-                autojs.global.toastLog(`#663399 -> HSV: [${hsv.map(v => v.toFixed(2)).join(', ')}]`);
+                const hsv = await richauto.color.toHsv('#663399');
+                richauto.global.toastLog(`#663399 -> HSV: [${hsv.map(v => v.toFixed(2)).join(', ')}]`);
             } catch (err) {
-                autojs.global.toastLog('toHsv 测试失败: ' + err);
+                richauto.global.toastLog('toHsv 测试失败: ' + err);
             }
         },
         
@@ -222,29 +222,29 @@ export default {
         // 测试相似度
         async testIsSimilar() {
             try {
-                const similar1 = await autojs.color.isSimilar('orange', 'dark-orange', 10);
-                autojs.global.toastLog(`orange 和 dark-orange (阈值10): ${similar1}`);
+                const similar1 = await richauto.color.isSimilar('orange', 'dark-orange', 10);
+                richauto.global.toastLog(`orange 和 dark-orange (阈值10): ${similar1}`);
                 
-                const similar2 = await autojs.color.isSimilar('orange', 'dark-orange', 5);
-                autojs.global.toastLog(`orange 和 dark-orange (阈值5): ${similar2}`);
+                const similar2 = await richauto.color.isSimilar('orange', 'dark-orange', 5);
+                richauto.global.toastLog(`orange 和 dark-orange (阈值5): ${similar2}`);
             } catch (err) {
-                autojs.global.toastLog('isSimilar 测试失败: ' + err);
+                richauto.global.toastLog('isSimilar 测试失败: ' + err);
             }
         },
         
         // 测试相等
         async testIsEqual() {
             try {
-                const equal1 = await autojs.color.isEqual('#FF0000', '#F00');
-                autojs.global.toastLog(`#FF0000 == #F00: ${equal1}`);
+                const equal1 = await richauto.color.isEqual('#FF0000', '#F00');
+                richauto.global.toastLog(`#FF0000 == #F00: ${equal1}`);
                 
-                const equal2 = await autojs.color.isEqual('red', '#FF0000');
-                autojs.global.toastLog(`'red' == #FF0000: ${equal2}`);
+                const equal2 = await richauto.color.isEqual('red', '#FF0000');
+                richauto.global.toastLog(`'red' == #FF0000: ${equal2}`);
                 
-                const equal3 = await autojs.color.isEqual('#A1FF0000', '#A2FF0000', false);
-                autojs.global.toastLog(`#A1FF0000 == #A2FF0000 (忽略Alpha): ${equal3}`);
+                const equal3 = await richauto.color.isEqual('#A1FF0000', '#A2FF0000', false);
+                richauto.global.toastLog(`#A1FF0000 == #A2FF0000 (忽略Alpha): ${equal3}`);
             } catch (err) {
-                autojs.global.toastLog('isEqual 测试失败: ' + err);
+                richauto.global.toastLog('isEqual 测试失败: ' + err);
             }
         },
         
@@ -253,19 +253,19 @@ export default {
         // 测试颜色常量
         async testConstants() {
             try {
-                const black = await autojs.color.BLACK;
-                const blackHex = await autojs.color.toHex(black);
-                autojs.global.toastLog(`BLACK: ${blackHex}`);
+                const black = await richauto.color.BLACK;
+                const blackHex = await richauto.color.toHex(black);
+                richauto.global.toastLog(`BLACK: ${blackHex}`);
                 
-                const red = await autojs.color.RED;
-                const redHex = await autojs.color.toHex(red);
-                autojs.global.toastLog(`RED: ${redHex}`);
+                const red = await richauto.color.RED;
+                const redHex = await richauto.color.toHex(red);
+                richauto.global.toastLog(`RED: ${redHex}`);
                 
-                const orange = await autojs.color.ORANGE;
-                const orangeHex = await autojs.color.toHex(orange);
-                autojs.global.toastLog(`ORANGE: ${orangeHex}`);
+                const orange = await richauto.color.ORANGE;
+                const orangeHex = await richauto.color.toHex(orange);
+                richauto.global.toastLog(`ORANGE: ${orangeHex}`);
             } catch (err) {
-                autojs.global.toastLog('常量测试失败: ' + err);
+                richauto.global.toastLog('常量测试失败: ' + err);
             }
         },
         
@@ -274,43 +274,43 @@ export default {
         // 颜色处理综合测试
         async testColorManipulation() {
             try {
-                autojs.global.toastLog('=== 颜色处理综合测试 ===');
+                richauto.global.toastLog('=== 颜色处理综合测试 ===');
                 
                 // 1. 创建一个颜色
                 const originalColor = '#FF5733';
-                autojs.global.toastLog(`原始颜色: ${originalColor}`);
+                richauto.global.toastLog(`原始颜色: ${originalColor}`);
                 
                 // 2. 获取各分量
-                const r = await autojs.color.red(originalColor);
-                const g = await autojs.color.green(originalColor);
-                const b = await autojs.color.blue(originalColor);
-                autojs.global.toastLog(`RGB 分量: (${r}, ${g}, ${b})`);
+                const r = await richauto.color.red(originalColor);
+                const g = await richauto.color.green(originalColor);
+                const b = await richauto.color.blue(originalColor);
+                richauto.global.toastLog(`RGB 分量: (${r}, ${g}, ${b})`);
                 
                 // 3. 修改透明度
-                const semiTransparent = await autojs.color.setAlpha(originalColor, 0.5);
-                const semiHex = await autojs.color.toHex(semiTransparent, 8);
-                autojs.global.toastLog(`半透明版本: ${semiHex}`);
+                const semiTransparent = await richauto.color.setAlpha(originalColor, 0.5);
+                const semiHex = await richauto.color.toHex(semiTransparent, 8);
+                richauto.global.toastLog(`半透明版本: ${semiHex}`);
                 
                 // 4. 修改颜色分量
-                const modifiedColor = await autojs.color.setGreen(semiTransparent, 200);
-                const modifiedHex = await autojs.color.toHex(modifiedColor, 8);
-                autojs.global.toastLog(`修改G分量后: ${modifiedHex}`);
+                const modifiedColor = await richauto.color.setGreen(semiTransparent, 200);
+                const modifiedHex = await richauto.color.toHex(modifiedColor, 8);
+                richauto.global.toastLog(`修改G分量后: ${modifiedHex}`);
                 
                 // 5. 转换到 HSV
-                const hsv = await autojs.color.toHsv(modifiedColor);
-                autojs.global.toastLog(`HSV: [${hsv.map(v => v.toFixed(2)).join(', ')}]`);
+                const hsv = await richauto.color.toHsv(modifiedColor);
+                richauto.global.toastLog(`HSV: [${hsv.map(v => v.toFixed(2)).join(', ')}]`);
                 
                 // 6. 计算亮度
-                const lum = await autojs.color.luminance(modifiedColor);
-                autojs.global.toastLog(`亮度: ${lum.toFixed(3)}`);
+                const lum = await richauto.color.luminance(modifiedColor);
+                richauto.global.toastLog(`亮度: ${lum.toFixed(3)}`);
                 
                 // 7. 获取摘要
-                const summary = await autojs.color.summary(modifiedColor);
-                autojs.global.toastLog(`摘要: ${summary}`);
+                const summary = await richauto.color.summary(modifiedColor);
+                richauto.global.toastLog(`摘要: ${summary}`);
                 
-                autojs.global.toastLog('=== 测试完成 ===');
+                richauto.global.toastLog('=== 测试完成 ===');
             } catch (err) {
-                autojs.global.toastLog('综合测试失败: ' + err);
+                richauto.global.toastLog('综合测试失败: ' + err);
             }
         }
     }

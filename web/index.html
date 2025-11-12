@@ -86,11 +86,8 @@
 <script src="ext/vue.min.js"></script>
 <script src="ext/vue2-sfc-loader.js"></script>
 <script src="ext/vant.min.js"></script>
-    <!-- 引入 events 库（autojs.sdk.v1.js 的依赖） -->
-    <script src="autojs://events.js"></script>
-    <!-- 引入 events 库（autojs.sdk.v1.js 的依赖） -->
-    <script src="autojs://events.js"></script>
-<script src="autojs://sdk/v1.js"></script>
+<script src="richauto://events.js"></script>
+<script src="richauto://sdk/v1.js"></script>
 <!-- AutoJS 模块加载器 - 只需引入这一个文件 -->
 <script src="modules/init.js"></script>
 <script>
@@ -104,8 +101,8 @@
         },
         async getFile(url) {
             let getContentData;
-            if (typeof $autojs !== 'undefined') {
-                let res = await $autojs.invoke('fetch', { path: url });
+            if (typeof $richauto !== 'undefined') {
+                let res = await $richauto.invoke('fetch', { path: url });
                 getContentData = (asBinary) => asBinary ? str2ab(res) : res;
             } else {
                 let res = await fetch(url);
@@ -151,7 +148,7 @@
             progressBar.style.width = '100%';
         }
         
-        loadModule('/main.vue', options)
+        loadModule('/main-test.vue', options)
             .then(function(component) {
                 // 更新提示
                 if (loadingText) {
@@ -181,14 +178,14 @@
             });
     }
     
-    // 等待 autojs 模块加载完成后再初始化 Vue 应用
+    // 等待 richauto 模块加载完成后再初始化 Vue 应用
     // 如果已经就绪，直接初始化；否则等待事件
-    if (window.__autojs_ready) {
+    if (window.__richauto_ready) {
         console.log('AutoJS 已就绪，直接初始化 Vue');
         initVueApp();
     } else {
         console.log('等待 AutoJS 就绪事件...');
-        window.addEventListener('autojs-ready', function() {
+        window.addEventListener('richauto-ready', function() {
             console.log('收到 AutoJS 就绪事件');
             initVueApp();
         });

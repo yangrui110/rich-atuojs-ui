@@ -6,10 +6,10 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // AutoJS 本体应用模块定义
-    var autojsModule = {
+    var richautoModule = {
         // ==================== 语言设置 ====================
         
         /**
@@ -17,7 +17,7 @@
          * @returns {Promise<Object>} 返回语言对象信息
          */
         getLanguage: function() {
-            return $autojs.invoke('autojs.getLanguage');
+            return $richauto.invoke('richauto.getLanguage');
         },
         
         /**
@@ -25,7 +25,7 @@
          * @returns {Promise<string>} 返回 IETF 语言标签，如 'en-US', 'zh-CN'
          */
         getLanguageTag: function() {
-            return $autojs.invoke('autojs.getLanguageTag');
+            return $richauto.invoke('richauto.getLanguageTag');
         },
         
         // ==================== Root 权限 ====================
@@ -35,7 +35,7 @@
          * @returns {Promise<boolean>}
          */
         isRootAvailable: function() {
-            return $autojs.invoke('autojs.isRootAvailable');
+            return $richauto.invoke('richauto.isRootAvailable');
         },
         
         /**
@@ -43,7 +43,7 @@
          * @returns {Promise<string>} 返回 'AUTO_DETECT', 'FORCE_ROOT', 'FORCE_NON_ROOT'
          */
         getRootMode: function() {
-            return $autojs.invoke('autojs.getRootMode');
+            return $richauto.invoke('richauto.getRootMode');
         },
         
         /**
@@ -54,7 +54,7 @@
          * @returns {Promise<boolean>}
          */
         setRootMode: function(rootMode, isWriteIntoPreference) {
-            return $autojs.invoke('autojs.setRootMode', rootMode, isWriteIntoPreference);
+            return $richauto.invoke('richauto.setRootMode', rootMode, isWriteIntoPreference);
         },
         
         // ==================== 权限状态 ====================
@@ -64,7 +64,7 @@
          * @returns {Promise<boolean>}
          */
         canModifySystemSettings: function() {
-            return $autojs.invoke('autojs.canModifySystemSettings');
+            return $richauto.invoke('richauto.canModifySystemSettings');
         },
         
         /**
@@ -72,7 +72,7 @@
          * @returns {Promise<boolean>}
          */
         canWriteSecureSettings: function() {
-            return $autojs.invoke('autojs.canWriteSecureSettings');
+            return $richauto.invoke('richauto.canWriteSecureSettings');
         },
         
         /**
@@ -80,7 +80,7 @@
          * @returns {Promise<boolean>}
          */
         canDisplayOverOtherApps: function() {
-            return $autojs.invoke('autojs.canDisplayOverOtherApps');
+            return $richauto.invoke('richauto.canDisplayOverOtherApps');
         },
         
         // ==================== 版本信息属性 ====================
@@ -90,7 +90,7 @@
          * @type {Promise<string>}
          */
         get versionName() {
-            return $autojs.invoke('autojs.versionName');
+            return $richauto.invoke('richauto.versionName');
         },
         
         /**
@@ -98,7 +98,7 @@
          * @type {Promise<number>}
          */
         get versionCode() {
-            return $autojs.invoke('autojs.versionCode');
+            return $richauto.invoke('richauto.versionCode');
         },
         
         /**
@@ -106,7 +106,7 @@
          * @type {Promise<string>}
          */
         get versionDate() {
-            return $autojs.invoke('autojs.versionDate');
+            return $richauto.invoke('richauto.versionDate');
         },
         
         // ==================== version 对象 ====================
@@ -120,7 +120,7 @@
              * @type {Promise<string>}
              */
             get name() {
-                return $autojs.invoke('autojs.version.name');
+                return $richauto.invoke('richauto.version.name');
             },
             
             /**
@@ -128,7 +128,7 @@
              * @type {Promise<number>}
              */
             get code() {
-                return $autojs.invoke('autojs.version.code');
+                return $richauto.invoke('richauto.version.code');
             },
             
             /**
@@ -136,7 +136,7 @@
              * @type {Promise<string>}
              */
             get date() {
-                return $autojs.invoke('autojs.version.date');
+                return $richauto.invoke('richauto.version.date');
             },
             
             /**
@@ -145,7 +145,7 @@
              * @returns {Promise<boolean>}
              */
             isEqual: function(otherVersion) {
-                return $autojs.invoke('autojs.version.isEqual', otherVersion);
+                return $richauto.invoke('richauto.version.isEqual', otherVersion);
             },
             
             /**
@@ -154,7 +154,7 @@
              * @returns {Promise<boolean>}
              */
             isHigherThan: function(otherVersion) {
-                return $autojs.invoke('autojs.version.isHigherThan', otherVersion);
+                return $richauto.invoke('richauto.version.isHigherThan', otherVersion);
             },
             
             /**
@@ -163,7 +163,7 @@
              * @returns {Promise<boolean>}
              */
             isLowerThan: function(otherVersion) {
-                return $autojs.invoke('autojs.version.isLowerThan', otherVersion);
+                return $richauto.invoke('richauto.version.isLowerThan', otherVersion);
             },
             
             /**
@@ -173,7 +173,7 @@
              * @returns {Promise<boolean>}
              */
             isAtLeast: function(otherVersion, ignoreSuffix) {
-                return $autojs.invoke('autojs.version.isAtLeast', otherVersion, ignoreSuffix);
+                return $richauto.invoke('richauto.version.isAtLeast', otherVersion, ignoreSuffix);
             }
         },
         
@@ -188,7 +188,7 @@
              * @returns {Promise<number>}
              */
             getColorPrimary: function() {
-                return $autojs.invoke('autojs.themeColor.getColorPrimary');
+                return $richauto.invoke('richauto.themeColor.getColorPrimary');
             },
             
             /**
@@ -196,7 +196,7 @@
              * @returns {Promise<number>}
              */
             getColorPrimaryDark: function() {
-                return $autojs.invoke('autojs.themeColor.getColorPrimaryDark');
+                return $richauto.invoke('richauto.themeColor.getColorPrimaryDark');
             },
             
             /**
@@ -204,7 +204,7 @@
              * @returns {Promise<number>}
              */
             getColorAccent: function() {
-                return $autojs.invoke('autojs.themeColor.getColorAccent');
+                return $richauto.invoke('richauto.themeColor.getColorAccent');
             }
         },
         
@@ -220,7 +220,7 @@
              * @returns {Promise<string|null>}
              */
             string: function(name) {
-                return $autojs.invoke('autojs.R.string', name);
+                return $richauto.invoke('richauto.R.string', name);
             },
             
             /**
@@ -229,7 +229,7 @@
              * @returns {Promise<number|null>}
              */
             id: function(name) {
-                return $autojs.invoke('autojs.R.id', name);
+                return $richauto.invoke('richauto.R.id', name);
             },
             
             /**
@@ -238,7 +238,7 @@
              * @returns {Promise<number|null>}
              */
             drawable: function(name) {
-                return $autojs.invoke('autojs.R.drawable', name);
+                return $richauto.invoke('richauto.R.drawable', name);
             },
             
             /**
@@ -247,13 +247,13 @@
              * @returns {Promise<number|null>}
              */
             layout: function(name) {
-                return $autojs.invoke('autojs.R.layout', name);
+                return $richauto.invoke('richauto.R.layout', name);
             }
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.autojs = autojsModule;
+    window.__richauto_modules.richauto = richautoModule;
     
 })(window);
 

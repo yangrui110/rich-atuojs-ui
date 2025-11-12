@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Device 模块定义
     var deviceModule = {
@@ -17,7 +17,7 @@
          * @returns {Promise<number>}
          */
         get width() {
-            return $autojs.invoke('device.width');
+            return $richauto.invoke('device.width');
         },
         
         /**
@@ -25,7 +25,7 @@
          * @returns {Promise<number>}
          */
         get height() {
-            return $autojs.invoke('device.height');
+            return $richauto.invoke('device.height');
         },
         
         /**
@@ -33,7 +33,7 @@
          * @returns {Promise<string>}
          */
         get buildId() {
-            return $autojs.invoke('device.buildId');
+            return $richauto.invoke('device.buildId');
         },
         
         /**
@@ -41,7 +41,7 @@
          * @returns {Promise<string>}
          */
         get broad() {
-            return $autojs.invoke('device.broad');
+            return $richauto.invoke('device.broad');
         },
         
         /**
@@ -49,7 +49,7 @@
          * @returns {Promise<string>}
          */
         get brand() {
-            return $autojs.invoke('device.brand');
+            return $richauto.invoke('device.brand');
         },
         
         /**
@@ -57,7 +57,7 @@
          * @returns {Promise<string>}
          */
         get device() {
-            return $autojs.invoke('device.device');
+            return $richauto.invoke('device.device');
         },
         
         /**
@@ -65,7 +65,7 @@
          * @returns {Promise<string>}
          */
         get model() {
-            return $autojs.invoke('device.model');
+            return $richauto.invoke('device.model');
         },
         
         /**
@@ -73,7 +73,7 @@
          * @returns {Promise<string>}
          */
         get product() {
-            return $autojs.invoke('device.product');
+            return $richauto.invoke('device.product');
         },
         
         /**
@@ -81,7 +81,7 @@
          * @returns {Promise<string>}
          */
         get bootloader() {
-            return $autojs.invoke('device.bootloader');
+            return $richauto.invoke('device.bootloader');
         },
         
         /**
@@ -89,7 +89,7 @@
          * @returns {Promise<string>}
          */
         get hardware() {
-            return $autojs.invoke('device.hardware');
+            return $richauto.invoke('device.hardware');
         },
         
         /**
@@ -97,7 +97,7 @@
          * @returns {Promise<string>}
          */
         get fingerprint() {
-            return $autojs.invoke('device.fingerprint');
+            return $richauto.invoke('device.fingerprint');
         },
         
         /**
@@ -105,7 +105,7 @@
          * @returns {Promise<string>}
          */
         get serial() {
-            return $autojs.invoke('device.serial');
+            return $richauto.invoke('device.serial');
         },
         
         /**
@@ -113,7 +113,7 @@
          * @returns {Promise<number>}
          */
         get sdkInt() {
-            return $autojs.invoke('device.sdkInt');
+            return $richauto.invoke('device.sdkInt');
         },
         
         /**
@@ -121,7 +121,7 @@
          * @returns {Promise<string>}
          */
         get incremental() {
-            return $autojs.invoke('device.incremental');
+            return $richauto.invoke('device.incremental');
         },
         
         /**
@@ -129,7 +129,7 @@
          * @returns {Promise<string>}
          */
         get release() {
-            return $autojs.invoke('device.release');
+            return $richauto.invoke('device.release');
         },
         
         /**
@@ -137,7 +137,7 @@
          * @returns {Promise<string>}
          */
         get baseOS() {
-            return $autojs.invoke('device.baseOS');
+            return $richauto.invoke('device.baseOS');
         },
         
         /**
@@ -145,7 +145,7 @@
          * @returns {Promise<string>}
          */
         get securityPatch() {
-            return $autojs.invoke('device.securityPatch');
+            return $richauto.invoke('device.securityPatch');
         },
         
         /**
@@ -153,7 +153,7 @@
          * @returns {Promise<string>}
          */
         get codename() {
-            return $autojs.invoke('device.codename');
+            return $richauto.invoke('device.codename');
         },
         
         // ==================== 设备信息获取 ====================
@@ -163,7 +163,7 @@
          * @returns {Promise<string>}
          */
         getIMEI: function() {
-            return $autojs.invoke('device.getIMEI');
+            return $richauto.invoke('device.getIMEI');
         },
         
         /**
@@ -171,7 +171,7 @@
          * @returns {Promise<string>}
          */
         getAndroidId: function() {
-            return $autojs.invoke('device.getAndroidId');
+            return $richauto.invoke('device.getAndroidId');
         },
         
         /**
@@ -179,7 +179,7 @@
          * @returns {Promise<string>}
          */
         getMacAddress: function() {
-            return $autojs.invoke('device.getMacAddress');
+            return $richauto.invoke('device.getMacAddress');
         },
         
         // ==================== 亮度控制 ====================
@@ -189,7 +189,7 @@
          * @returns {Promise<number>}
          */
         getBrightness: function() {
-            return $autojs.invoke('device.getBrightness');
+            return $richauto.invoke('device.getBrightness');
         },
         
         /**
@@ -197,7 +197,7 @@
          * @returns {Promise<number>}
          */
         getBrightnessMode: function() {
-            return $autojs.invoke('device.getBrightnessMode');
+            return $richauto.invoke('device.getBrightnessMode');
         },
         
         /**
@@ -206,7 +206,7 @@
          * @returns {Promise<void>}
          */
         setBrightness: function(brightness) {
-            return $autojs.invoke('device.setBrightness', brightness);
+            return $richauto.invoke('device.setBrightness', brightness);
         },
         
         /**
@@ -215,7 +215,7 @@
          * @returns {Promise<void>}
          */
         setBrightnessMode: function(mode) {
-            return $autojs.invoke('device.setBrightnessMode', mode);
+            return $richauto.invoke('device.setBrightnessMode', mode);
         },
         
         // ==================== 音量控制 ====================
@@ -225,7 +225,7 @@
          * @returns {Promise<number>}
          */
         getMusicVolume: function() {
-            return $autojs.invoke('device.getMusicVolume');
+            return $richauto.invoke('device.getMusicVolume');
         },
         
         /**
@@ -233,7 +233,7 @@
          * @returns {Promise<number>}
          */
         getNotificationVolume: function() {
-            return $autojs.invoke('device.getNotificationVolume');
+            return $richauto.invoke('device.getNotificationVolume');
         },
         
         /**
@@ -241,7 +241,7 @@
          * @returns {Promise<number>}
          */
         getAlarmVolume: function() {
-            return $autojs.invoke('device.getAlarmVolume');
+            return $richauto.invoke('device.getAlarmVolume');
         },
         
         /**
@@ -249,7 +249,7 @@
          * @returns {Promise<number>}
          */
         getMusicMaxVolume: function() {
-            return $autojs.invoke('device.getMusicMaxVolume');
+            return $richauto.invoke('device.getMusicMaxVolume');
         },
         
         /**
@@ -257,7 +257,7 @@
          * @returns {Promise<number>}
          */
         getNotificationMaxVolume: function() {
-            return $autojs.invoke('device.getNotificationMaxVolume');
+            return $richauto.invoke('device.getNotificationMaxVolume');
         },
         
         /**
@@ -265,7 +265,7 @@
          * @returns {Promise<number>}
          */
         getAlarmMaxVolume: function() {
-            return $autojs.invoke('device.getAlarmMaxVolume');
+            return $richauto.invoke('device.getAlarmMaxVolume');
         },
         
         /**
@@ -274,7 +274,7 @@
          * @returns {Promise<void>}
          */
         setMusicVolume: function(volume) {
-            return $autojs.invoke('device.setMusicVolume', volume);
+            return $richauto.invoke('device.setMusicVolume', volume);
         },
         
         /**
@@ -283,7 +283,7 @@
          * @returns {Promise<void>}
          */
         setNotificationVolume: function(volume) {
-            return $autojs.invoke('device.setNotificationVolume', volume);
+            return $richauto.invoke('device.setNotificationVolume', volume);
         },
         
         /**
@@ -292,7 +292,7 @@
          * @returns {Promise<void>}
          */
         setAlarmVolume: function(volume) {
-            return $autojs.invoke('device.setAlarmVolume', volume);
+            return $richauto.invoke('device.setAlarmVolume', volume);
         },
         
         // ==================== 电池信息 ====================
@@ -302,7 +302,7 @@
          * @returns {Promise<number>} 0.0-100.0的浮点数
          */
         getBattery: function() {
-            return $autojs.invoke('device.getBattery');
+            return $richauto.invoke('device.getBattery');
         },
         
         /**
@@ -310,7 +310,7 @@
          * @returns {Promise<boolean>}
          */
         isCharging: function() {
-            return $autojs.invoke('device.isCharging');
+            return $richauto.invoke('device.isCharging');
         },
         
         // ==================== 内存信息 ====================
@@ -320,7 +320,7 @@
          * @returns {Promise<number>}
          */
         getTotalMem: function() {
-            return $autojs.invoke('device.getTotalMem');
+            return $richauto.invoke('device.getTotalMem');
         },
         
         /**
@@ -328,7 +328,7 @@
          * @returns {Promise<number>}
          */
         getAvailMem: function() {
-            return $autojs.invoke('device.getAvailMem');
+            return $richauto.invoke('device.getAvailMem');
         },
         
         // ==================== 屏幕控制 ====================
@@ -338,7 +338,7 @@
          * @returns {Promise<boolean>}
          */
         isScreenOn: function() {
-            return $autojs.invoke('device.isScreenOn');
+            return $richauto.invoke('device.isScreenOn');
         },
         
         /**
@@ -346,7 +346,7 @@
          * @returns {Promise<void>}
          */
         wakeUp: function() {
-            return $autojs.invoke('device.wakeUp');
+            return $richauto.invoke('device.wakeUp');
         },
         
         /**
@@ -354,7 +354,7 @@
          * @returns {Promise<void>}
          */
         wakeUpIfNeeded: function() {
-            return $autojs.invoke('device.wakeUpIfNeeded');
+            return $richauto.invoke('device.wakeUpIfNeeded');
         },
         
         /**
@@ -364,9 +364,9 @@
          */
         keepScreenOn: function(timeout) {
             if (timeout !== undefined) {
-                return $autojs.invoke('device.keepScreenOn', timeout);
+                return $richauto.invoke('device.keepScreenOn', timeout);
             }
-            return $autojs.invoke('device.keepScreenOn');
+            return $richauto.invoke('device.keepScreenOn');
         },
         
         /**
@@ -376,9 +376,9 @@
          */
         keepScreenDim: function(timeout) {
             if (timeout !== undefined) {
-                return $autojs.invoke('device.keepScreenDim', timeout);
+                return $richauto.invoke('device.keepScreenDim', timeout);
             }
-            return $autojs.invoke('device.keepScreenDim');
+            return $richauto.invoke('device.keepScreenDim');
         },
         
         /**
@@ -386,7 +386,7 @@
          * @returns {Promise<void>}
          */
         cancelKeepingAwake: function() {
-            return $autojs.invoke('device.cancelKeepingAwake');
+            return $richauto.invoke('device.cancelKeepingAwake');
         },
         
         // ==================== 振动控制 ====================
@@ -397,7 +397,7 @@
          * @returns {Promise<void>}
          */
         vibrate: function(millis) {
-            return $autojs.invoke('device.vibrate', millis);
+            return $richauto.invoke('device.vibrate', millis);
         },
         
         /**
@@ -405,12 +405,12 @@
          * @returns {Promise<void>}
          */
         cancelVibration: function() {
-            return $autojs.invoke('device.cancelVibration');
+            return $richauto.invoke('device.cancelVibration');
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.device = deviceModule;
+    window.__richauto_modules.device = deviceModule;
     
 })(window);
 

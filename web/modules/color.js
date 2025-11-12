@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Color 模块定义
     var colorModule = {
@@ -18,7 +18,7 @@
          * @returns {Promise<number>}
          */
         toInt: function(color) {
-            return $autojs.invoke('color.toInt', color);
+            return $richauto.invoke('color.toInt', color);
         },
         
         /**
@@ -30,7 +30,7 @@
          */
         toHex: function() {
             var args = ['color.toHex'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -39,7 +39,7 @@
          * @returns {Promise<string>}
          */
         toFullHex: function(color) {
-            return $autojs.invoke('color.toFullHex', color);
+            return $richauto.invoke('color.toFullHex', color);
         },
         
         /**
@@ -48,7 +48,7 @@
          */
         toString: function() {
             var args = ['color.toString'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -57,7 +57,7 @@
          * @returns {Promise<string>}
          */
         summary: function(color) {
-            return $autojs.invoke('color.summary', color);
+            return $richauto.invoke('color.summary', color);
         },
         
         // ==================== 颜色分量获取 ====================
@@ -70,7 +70,7 @@
          */
         alpha: function() {
             var args = ['color.alpha'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -81,7 +81,7 @@
          */
         red: function() {
             var args = ['color.red'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -92,7 +92,7 @@
          */
         green: function() {
             var args = ['color.green'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -103,7 +103,7 @@
          */
         blue: function() {
             var args = ['color.blue'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== 颜色分量设置 ====================
@@ -115,7 +115,7 @@
          * @returns {Promise<number>}
          */
         setAlpha: function(color, alpha) {
-            return $autojs.invoke('color.setAlpha', color, alpha);
+            return $richauto.invoke('color.setAlpha', color, alpha);
         },
         
         /**
@@ -125,7 +125,7 @@
          * @returns {Promise<number>}
          */
         setRed: function(color, red) {
-            return $autojs.invoke('color.setRed', color, red);
+            return $richauto.invoke('color.setRed', color, red);
         },
         
         /**
@@ -135,7 +135,7 @@
          * @returns {Promise<number>}
          */
         setGreen: function(color, green) {
-            return $autojs.invoke('color.setGreen', color, green);
+            return $richauto.invoke('color.setGreen', color, green);
         },
         
         /**
@@ -145,7 +145,7 @@
          * @returns {Promise<number>}
          */
         setBlue: function(color, blue) {
-            return $autojs.invoke('color.setBlue', color, blue);
+            return $richauto.invoke('color.setBlue', color, blue);
         },
         
         // ==================== 颜色合成 ====================
@@ -159,7 +159,7 @@
          */
         rgb: function() {
             var args = ['color.rgb'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -171,7 +171,7 @@
          */
         argb: function() {
             var args = ['color.argb'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -183,7 +183,7 @@
          */
         rgba: function() {
             var args = ['color.rgba'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -194,7 +194,7 @@
          */
         hsv: function() {
             var args = ['color.hsv'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -205,7 +205,7 @@
          */
         hsva: function() {
             var args = ['color.hsva'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -216,7 +216,7 @@
          */
         hsl: function() {
             var args = ['color.hsl'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -227,7 +227,7 @@
          */
         hsla: function() {
             var args = ['color.hsla'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== 颜色分解 ====================
@@ -238,7 +238,7 @@
          * @returns {Promise<Array<number>>}
          */
         toRgb: function(color) {
-            return $autojs.invoke('color.toRgb', color);
+            return $richauto.invoke('color.toRgb', color);
         },
         
         /**
@@ -247,7 +247,7 @@
          */
         toRgba: function() {
             var args = ['color.toRgba'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -256,7 +256,7 @@
          */
         toArgb: function() {
             var args = ['color.toArgb'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -265,7 +265,7 @@
          */
         toHsv: function() {
             var args = ['color.toHsv'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -274,7 +274,7 @@
          */
         toHsva: function() {
             var args = ['color.toHsva'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -283,7 +283,7 @@
          */
         toHsl: function() {
             var args = ['color.toHsl'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -292,7 +292,7 @@
          */
         toHsla: function() {
             var args = ['color.toHsla'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== 颜色比较 ====================
@@ -307,7 +307,7 @@
          */
         isSimilar: function() {
             var args = ['color.isSimilar'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -318,7 +318,7 @@
          */
         isEqual: function() {
             var args = ['color.isEqual'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== 颜色工具 ====================
@@ -329,7 +329,7 @@
          * @returns {Promise<number>}
          */
         luminance: function(color) {
-            return $autojs.invoke('color.luminance', color);
+            return $richauto.invoke('color.luminance', color);
         },
         
         // ==================== 颜色常量 ====================
@@ -339,7 +339,7 @@
          * @returns {Promise<number>}
          */
         get BLACK() {
-            return $autojs.invoke('color.BLACK');
+            return $richauto.invoke('color.BLACK');
         },
         
         /**
@@ -347,7 +347,7 @@
          * @returns {Promise<number>}
          */
         get WHITE() {
-            return $autojs.invoke('color.WHITE');
+            return $richauto.invoke('color.WHITE');
         },
         
         /**
@@ -355,7 +355,7 @@
          * @returns {Promise<number>}
          */
         get RED() {
-            return $autojs.invoke('color.RED');
+            return $richauto.invoke('color.RED');
         },
         
         /**
@@ -363,7 +363,7 @@
          * @returns {Promise<number>}
          */
         get GREEN() {
-            return $autojs.invoke('color.GREEN');
+            return $richauto.invoke('color.GREEN');
         },
         
         /**
@@ -371,7 +371,7 @@
          * @returns {Promise<number>}
          */
         get BLUE() {
-            return $autojs.invoke('color.BLUE');
+            return $richauto.invoke('color.BLUE');
         },
         
         /**
@@ -379,7 +379,7 @@
          * @returns {Promise<number>}
          */
         get YELLOW() {
-            return $autojs.invoke('color.YELLOW');
+            return $richauto.invoke('color.YELLOW');
         },
         
         /**
@@ -387,7 +387,7 @@
          * @returns {Promise<number>}
          */
         get CYAN() {
-            return $autojs.invoke('color.CYAN');
+            return $richauto.invoke('color.CYAN');
         },
         
         /**
@@ -395,7 +395,7 @@
          * @returns {Promise<number>}
          */
         get MAGENTA() {
-            return $autojs.invoke('color.MAGENTA');
+            return $richauto.invoke('color.MAGENTA');
         },
         
         /**
@@ -403,7 +403,7 @@
          * @returns {Promise<number>}
          */
         get ORANGE() {
-            return $autojs.invoke('color.ORANGE');
+            return $richauto.invoke('color.ORANGE');
         },
         
         /**
@@ -411,7 +411,7 @@
          * @returns {Promise<number>}
          */
         get GRAY() {
-            return $autojs.invoke('color.GRAY');
+            return $richauto.invoke('color.GRAY');
         },
         
         /**
@@ -419,12 +419,12 @@
          * @returns {Promise<number>}
          */
         get TRANSPARENT() {
-            return $autojs.invoke('color.TRANSPARENT');
+            return $richauto.invoke('color.TRANSPARENT');
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.color = colorModule;
+    window.__richauto_modules.color = colorModule;
     
 })(window);
 

@@ -6,7 +6,7 @@ var globalModule = require('./global.js');
 var automatorModule = require('./automator.js');
 var floatyModule = require('./floaty.js');
 var floatyManagerModule = require('./floaty-manager.js');
-var autojsModule = require('./autojs.js');
+var richautoModule = require('./richauto.js');
 var appModule = require('./app.js');
 var colorModule = require('./color.js');
 var imageModule = require('./image.js');
@@ -40,8 +40,8 @@ module.exports = {
         // 注册 floaty-manager 模块（高级悬浮窗管理）
         floatyManagerModule.register(jsBridge);
         
-        // 注册 autojs 本体应用模块
-        autojsModule.register(jsBridge);
+        // 注册 richauto 本体应用模块
+        richautoModule.register(jsBridge);
 
         // 注册 app 模块
         appModule.register(jsBridge);

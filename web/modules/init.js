@@ -11,7 +11,7 @@
         'modules/global.js',
         'modules/automator.js',
         'modules/uiselector.js',
-        'modules/autojs.js',
+        'modules/richauto.js',
         'modules/app.js',
         'modules/color.js',
         'modules/image.js',
@@ -83,10 +83,11 @@
      */
     function loadScript(url) {
         return new Promise(function(resolve, reject) {
+            console.log('$richauto ==null?',$richauto )
             // 检测是否在 AutoJS WebView 环境中（插件模式或开发模式）
-            if (typeof $autojs !== 'undefined') {
+            if (typeof $richauto !== 'undefined') {
                 // 使用 jsBridge 加载脚本内容
-                $autojs.invoke('fetch', { path: url })
+                $richauto.invoke('fetch', { path: url })
                     .then(function(content) {
                         if (!content) {
                             throw new Error('Empty content for: ' + url);
@@ -166,60 +167,60 @@
     }
     
     /**
-     * 初始化 autojs 对象
+     * 初始化 richauto 对象
      */
     function initAutoJS() {
         // 确保所有模块都已加载
-        if (!window.__autojs_modules) {
-            console.error('AutoJS 模块未加载！');
+        if (!window.__richauto_modules) {
+            console.error('RichAuto 模块未加载！');
             return;
         }
         
-        // 先从 autojs 模块中获取本体应用的方法
-        var autojsAppModule = window.__autojs_modules.autojs || {};
+        // 先从 richauto 模块中获取本体应用的方法
+        var richautoAppModule = window.__richauto_modules.richauto || {};
         
-        // 组合所有模块到 autojs 对象
-        window.autojs = {
+        // 组合所有模块到 richauto 对象
+        window.richauto = {
             // global、automator、uiselector、app、color、image、ocr、keys、device、storages 和 files 作为子模块
-            global: window.__autojs_modules.global || {},
-            automator: window.__autojs_modules.automator || {},
-            uiselector: window.__autojs_modules.uiselector || {},
-            app: window.__autojs_modules.app || {},
-            color: window.__autojs_modules.color || {},
-            image: window.__autojs_modules.image || {},
-            ocr: window.__autojs_modules.ocr || {},
-            keys: window.__autojs_modules.keys || {},
-            device: window.__autojs_modules.device || {},
-            storages: window.__autojs_modules.storages || {},
-            files: window.__autojs_modules.files || {},
-            engines: window.__autojs_modules.engines || {},
-            notice: window.__autojs_modules.notice || {},
-            floaty: window.__autojs_modules.floaty || {},
-            floatyManager: window.__autojs_modules.floatyManager || {},
-            http: window.__autojs_modules.http || {},
-            base64: window.__autojs_modules.base64 || {}
+            global: window.__richauto_modules.global || {},
+            automator: window.__richauto_modules.automator || {},
+            uiselector: window.__richauto_modules.uiselector || {},
+            app: window.__richauto_modules.app || {},
+            color: window.__richauto_modules.color || {},
+            image: window.__richauto_modules.image || {},
+            ocr: window.__richauto_modules.ocr || {},
+            keys: window.__richauto_modules.keys || {},
+            device: window.__richauto_modules.device || {},
+            storages: window.__richauto_modules.storages || {},
+            files: window.__richauto_modules.files || {},
+            engines: window.__richauto_modules.engines || {},
+            notice: window.__richauto_modules.notice || {},
+            floaty: window.__richauto_modules.floaty || {},
+            floatyManager: window.__richauto_modules.floatyManager || {},
+            http: window.__richauto_modules.http || {},
+            base64: window.__richauto_modules.base64 || {}
             
             // 模块会自动添加，无需手动维护
         };
         
-        // 将 autojs 本体应用的方法直接挂载到 window.autojs 上
-        for (var key in autojsAppModule) {
-            if (autojsAppModule.hasOwnProperty(key)) {
-                window.autojs[key] = autojsAppModule[key];
+        // 将 richauto 本体应用的方法直接挂载到 window.richauto 上
+        for (var key in richautoAppModule) {
+            if (richautoAppModule.hasOwnProperty(key)) {
+                window.richauto[key] = richautoAppModule[key];
             }
         }
         
         // 清理临时命名空间（可选）
-        // delete window.__autojs_modules;
+        // delete window.__richauto_modules;
         
-        console.log('AutoJS 模块初始化完成');
+        console.log('RichAuto 模块初始化完成');
         
-        // 标记 autojs 已就绪
-        window.__autojs_ready = true;
+        // 标记 richauto 已就绪
+        window.__richauto_ready = true;
         
         // 触发自定义事件，通知模块加载完成
         if (typeof Event === 'function') {
-            window.dispatchEvent(new Event('autojs-ready'));
+            window.dispatchEvent(new Event('richauto-ready'));
         }
     }
     

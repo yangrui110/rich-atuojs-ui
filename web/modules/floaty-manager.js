@@ -7,7 +7,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // FloatyManager 模块定义
     var floatyManagerModule = {
@@ -16,7 +16,7 @@
          * @returns {Promise<boolean>} 是否成功创建
          */
         create: function() {
-            return $autojs.invoke('floatyManager.create');
+            return $richauto.invoke('floatyManager.create');
         },
         
         /**
@@ -24,7 +24,7 @@
          * @returns {Promise<boolean>} 是否成功移除
          */
         remove: function() {
-            return $autojs.invoke('floatyManager.remove');
+            return $richauto.invoke('floatyManager.remove');
         },
         
         /**
@@ -32,7 +32,7 @@
          * @returns {Promise<{isEnabled: boolean, isExpanded: boolean}>}
          */
         getStatus: function() {
-            return $autojs.invoke('floatyManager.getStatus');
+            return $richauto.invoke('floatyManager.getStatus');
         },
         
         /**
@@ -40,7 +40,7 @@
          * @returns {Promise<boolean>}
          */
         toggleMenu: function() {
-            return $autojs.invoke('floatyManager.toggleMenu');
+            return $richauto.invoke('floatyManager.toggleMenu');
         },
         
         /**
@@ -48,7 +48,7 @@
          * @returns {Promise<boolean>}
          */
         expandMenu: function() {
-            return $autojs.invoke('floatyManager.expandMenu');
+            return $richauto.invoke('floatyManager.expandMenu');
         },
         
         /**
@@ -56,7 +56,7 @@
          * @returns {Promise<boolean>}
          */
         collapseMenu: function() {
-            return $autojs.invoke('floatyManager.collapseMenu');
+            return $richauto.invoke('floatyManager.collapseMenu');
         },
         
         /**
@@ -65,7 +65,7 @@
          * @returns {Promise<boolean>}
          */
         updateScriptButton: function(isRunning) {
-            return $autojs.invoke('floatyManager.updateScriptButton', isRunning);
+            return $richauto.invoke('floatyManager.updateScriptButton', isRunning);
         },
         
         /**
@@ -74,7 +74,7 @@
          * @returns {Promise<boolean>}
          */
         setScriptStatusCallback: function(callbackName) {
-            return $autojs.invoke('floatyManager.setScriptStatusCallback', callbackName);
+            return $richauto.invoke('floatyManager.setScriptStatusCallback', callbackName);
         },
         
         /**
@@ -84,7 +84,7 @@
          * @returns {Promise<boolean>}
          */
         setActionCallback: function(callbackName) {
-            return $autojs.invoke('floatyManager.setActionCallback', callbackName);
+            return $richauto.invoke('floatyManager.setActionCallback', callbackName);
         },
         
         /**
@@ -111,7 +111,7 @@
             }
             
             // 在全局注册监听器
-            $autojs.on('floatyManager.onAction', function(action) {
+            $richauto.on('floatyManager.onAction', function(action) {
                 handler(action);
             });
             
@@ -121,7 +121,7 @@
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.floatyManager = floatyManagerModule;
+    window.__richauto_modules.floatyManager = floatyManagerModule;
     
 })(window);
 

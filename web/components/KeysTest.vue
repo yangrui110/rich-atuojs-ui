@@ -118,70 +118,70 @@ export default {
         // 测试返回键
         async testBack() {
             try {
-                const success = await autojs.keys.back();
-                autojs.global.toastLog(`返回键${success ? '执行成功' : '执行失败'}`);
+                const success = await richauto.keys.back();
+                richauto.global.toastLog(`返回键${success ? '执行成功' : '执行失败'}`);
             } catch (err) {
-                autojs.global.toastLog('返回键失败: ' + err);
+                richauto.global.toastLog('返回键失败: ' + err);
             }
         },
         
         // 测试 Home 键
         async testHome() {
             try {
-                const success = await autojs.keys.home();
-                autojs.global.toastLog(`Home键${success ? '执行成功' : '执行失败'}`);
+                const success = await richauto.keys.home();
+                richauto.global.toastLog(`Home键${success ? '执行成功' : '执行失败'}`);
             } catch (err) {
-                autojs.global.toastLog('Home键失败: ' + err);
+                richauto.global.toastLog('Home键失败: ' + err);
             }
         },
         
         // 测试电源键菜单
         async testPowerDialog() {
             try {
-                const success = await autojs.keys.powerDialog();
-                autojs.global.toastLog(`电源键菜单${success ? '执行成功' : '执行失败'}`);
+                const success = await richauto.keys.powerDialog();
+                richauto.global.toastLog(`电源键菜单${success ? '执行成功' : '执行失败'}`);
             } catch (err) {
-                autojs.global.toastLog('电源键菜单失败: ' + err);
+                richauto.global.toastLog('电源键菜单失败: ' + err);
             }
         },
         
         // 测试通知栏
         async testNotifications() {
             try {
-                const success = await autojs.keys.notifications();
-                autojs.global.toastLog(`通知栏${success ? '执行成功' : '执行失败'}`);
+                const success = await richauto.keys.notifications();
+                richauto.global.toastLog(`通知栏${success ? '执行成功' : '执行失败'}`);
             } catch (err) {
-                autojs.global.toastLog('通知栏失败: ' + err);
+                richauto.global.toastLog('通知栏失败: ' + err);
             }
         },
         
         // 测试快速设置
         async testQuickSettings() {
             try {
-                const success = await autojs.keys.quickSettings();
-                autojs.global.toastLog(`快速设置${success ? '执行成功' : '执行失败'}`);
+                const success = await richauto.keys.quickSettings();
+                richauto.global.toastLog(`快速设置${success ? '执行成功' : '执行失败'}`);
             } catch (err) {
-                autojs.global.toastLog('快速设置失败: ' + err);
+                richauto.global.toastLog('快速设置失败: ' + err);
             }
         },
         
         // 测试最近任务
         async testRecents() {
             try {
-                const success = await autojs.keys.recents();
-                autojs.global.toastLog(`最近任务${success ? '执行成功' : '执行失败'}`);
+                const success = await richauto.keys.recents();
+                richauto.global.toastLog(`最近任务${success ? '执行成功' : '执行失败'}`);
             } catch (err) {
-                autojs.global.toastLog('最近任务失败: ' + err);
+                richauto.global.toastLog('最近任务失败: ' + err);
             }
         },
         
         // 测试分屏
         async testSplitScreen() {
             try {
-                const success = await autojs.keys.splitScreen();
-                autojs.global.toastLog(`分屏${success ? '执行成功' : '执行失败'}`);
+                const success = await richauto.keys.splitScreen();
+                richauto.global.toastLog(`分屏${success ? '执行成功' : '执行失败'}`);
             } catch (err) {
-                autojs.global.toastLog('分屏失败: ' + err);
+                richauto.global.toastLog('分屏失败: ' + err);
             }
         },
         
@@ -190,40 +190,40 @@ export default {
         // 测试 Root Home
         async testRootHome() {
             try {
-                await autojs.keys.Home();
-                autojs.global.toastLog('Root Home 执行完成');
+                await richauto.keys.Home();
+                richauto.global.toastLog('Root Home 执行完成');
             } catch (err) {
-                autojs.global.toastLog('Root Home 失败: ' + err);
+                richauto.global.toastLog('Root Home 失败: ' + err);
             }
         },
         
         // 测试 Root 返回
         async testRootBack() {
             try {
-                await autojs.keys.Back();
-                autojs.global.toastLog('Root 返回 执行完成');
+                await richauto.keys.Back();
+                richauto.global.toastLog('Root 返回 执行完成');
             } catch (err) {
-                autojs.global.toastLog('Root 返回 失败: ' + err);
+                richauto.global.toastLog('Root 返回 失败: ' + err);
             }
         },
         
         // 测试 Root 电源
         async testRootPower() {
             try {
-                await autojs.keys.Power();
-                autojs.global.toastLog('Root 电源 执行完成');
+                await richauto.keys.Power();
+                richauto.global.toastLog('Root 电源 执行完成');
             } catch (err) {
-                autojs.global.toastLog('Root 电源 失败: ' + err);
+                richauto.global.toastLog('Root 电源 失败: ' + err);
             }
         },
         
         // 测试 Root 菜单
         async testRootMenu() {
             try {
-                await autojs.keys.Menu();
-                autojs.global.toastLog('Root 菜单 执行完成');
+                await richauto.keys.Menu();
+                richauto.global.toastLog('Root 菜单 执行完成');
             } catch (err) {
-                autojs.global.toastLog('Root 菜单 失败: ' + err);
+                richauto.global.toastLog('Root 菜单 失败: ' + err);
             }
         },
         
@@ -232,30 +232,30 @@ export default {
         // 测试音量上
         async testVolumeUp() {
             try {
-                await autojs.keys.VolumeUp();
-                autojs.global.toastLog('音量+ 执行完成');
+                await richauto.keys.VolumeUp();
+                richauto.global.toastLog('音量+ 执行完成');
             } catch (err) {
-                autojs.global.toastLog('音量+ 失败: ' + err);
+                richauto.global.toastLog('音量+ 失败: ' + err);
             }
         },
         
         // 测试音量下
         async testVolumeDown() {
             try {
-                await autojs.keys.VolumeDown();
-                autojs.global.toastLog('音量- 执行完成');
+                await richauto.keys.VolumeDown();
+                richauto.global.toastLog('音量- 执行完成');
             } catch (err) {
-                autojs.global.toastLog('音量- 失败: ' + err);
+                richauto.global.toastLog('音量- 失败: ' + err);
             }
         },
         
         // 测试照相键
         async testCamera() {
             try {
-                await autojs.keys.Camera();
-                autojs.global.toastLog('照相键 执行完成');
+                await richauto.keys.Camera();
+                richauto.global.toastLog('照相键 执行完成');
             } catch (err) {
-                autojs.global.toastLog('照相键 失败: ' + err);
+                richauto.global.toastLog('照相键 失败: ' + err);
             }
         },
         
@@ -264,50 +264,50 @@ export default {
         // 测试上键
         async testUp() {
             try {
-                await autojs.keys.Up();
-                autojs.global.toastLog('上键 执行完成');
+                await richauto.keys.Up();
+                richauto.global.toastLog('上键 执行完成');
             } catch (err) {
-                autojs.global.toastLog('上键 失败: ' + err);
+                richauto.global.toastLog('上键 失败: ' + err);
             }
         },
         
         // 测试下键
         async testDown() {
             try {
-                await autojs.keys.Down();
-                autojs.global.toastLog('下键 执行完成');
+                await richauto.keys.Down();
+                richauto.global.toastLog('下键 执行完成');
             } catch (err) {
-                autojs.global.toastLog('下键 失败: ' + err);
+                richauto.global.toastLog('下键 失败: ' + err);
             }
         },
         
         // 测试左键
         async testLeft() {
             try {
-                await autojs.keys.Left();
-                autojs.global.toastLog('左键 执行完成');
+                await richauto.keys.Left();
+                richauto.global.toastLog('左键 执行完成');
             } catch (err) {
-                autojs.global.toastLog('左键 失败: ' + err);
+                richauto.global.toastLog('左键 失败: ' + err);
             }
         },
         
         // 测试右键
         async testRight() {
             try {
-                await autojs.keys.Right();
-                autojs.global.toastLog('右键 执行完成');
+                await richauto.keys.Right();
+                richauto.global.toastLog('右键 执行完成');
             } catch (err) {
-                autojs.global.toastLog('右键 失败: ' + err);
+                richauto.global.toastLog('右键 失败: ' + err);
             }
         },
         
         // 测试确定键
         async testOK() {
             try {
-                await autojs.keys.OK();
-                autojs.global.toastLog('OK键 执行完成');
+                await richauto.keys.OK();
+                richauto.global.toastLog('OK键 执行完成');
             } catch (err) {
-                autojs.global.toastLog('OK键 失败: ' + err);
+                richauto.global.toastLog('OK键 失败: ' + err);
             }
         },
         
@@ -316,30 +316,30 @@ export default {
         // 测试输入文本
         async testText() {
             if (!this.textInput) {
-                autojs.global.toastLog('请输入文本内容');
+                richauto.global.toastLog('请输入文本内容');
                 return;
             }
             try {
-                await autojs.keys.Text(this.textInput);
-                autojs.global.toastLog(`已输入文本: ${this.textInput}`);
+                await richauto.keys.Text(this.textInput);
+                richauto.global.toastLog(`已输入文本: ${this.textInput}`);
             } catch (err) {
-                autojs.global.toastLog('输入文本失败: ' + err);
+                richauto.global.toastLog('输入文本失败: ' + err);
             }
         },
         
         // 测试按键码
         async testKeyCode() {
             if (!this.keyCodeInput) {
-                autojs.global.toastLog('请输入按键码');
+                richauto.global.toastLog('请输入按键码');
                 return;
             }
             try {
                 // 判断是数字还是字符串
                 const code = isNaN(this.keyCodeInput) ? this.keyCodeInput : Number(this.keyCodeInput);
-                await autojs.keys.KeyCode(code);
-                autojs.global.toastLog(`已发送按键码: ${this.keyCodeInput}`);
+                await richauto.keys.KeyCode(code);
+                richauto.global.toastLog(`已发送按键码: ${this.keyCodeInput}`);
             } catch (err) {
-                autojs.global.toastLog('发送按键码失败: ' + err);
+                richauto.global.toastLog('发送按键码失败: ' + err);
             }
         },
         
@@ -347,7 +347,7 @@ export default {
         setKeyCode(keyCode) {
             this.keyCodeInput = keyCode;
             this.showKeyCodeList = false;
-            autojs.global.toastLog(`已选择: ${keyCode}`);
+            richauto.global.toastLog(`已选择: ${keyCode}`);
         }
     }
 };

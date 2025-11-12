@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Automator 模块定义
     var automatorModule = {
@@ -19,7 +19,7 @@
          * @returns {Promise<any>}
          */
         setScreenMetrics: function(width, height) {
-            return $autojs.invoke('automator.setScreenMetrics', width, height);
+            return $richauto.invoke('automator.setScreenMetrics', width, height);
         },
         
         /**
@@ -31,7 +31,7 @@
          */
         click: function() {
             var args = ['automator.click'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -41,7 +41,7 @@
          * @returns {Promise<boolean>}
          */
         longClick: function(x, y) {
-            return $autojs.invoke('automator.longClick', x, y);
+            return $richauto.invoke('automator.longClick', x, y);
         },
         
         /**
@@ -52,7 +52,7 @@
          * @returns {Promise<boolean>}
          */
         press: function(x, y, duration) {
-            return $autojs.invoke('automator.press', x, y, duration);
+            return $richauto.invoke('automator.press', x, y, duration);
         },
         
         /**
@@ -65,7 +65,7 @@
          * @returns {Promise<boolean>}
          */
         swipe: function(x1, y1, x2, y2, duration) {
-            return $autojs.invoke('automator.swipe', x1, y1, x2, y2, duration);
+            return $richauto.invoke('automator.swipe', x1, y1, x2, y2, duration);
         },
         
         /**
@@ -75,7 +75,7 @@
          * @returns {Promise<boolean>}
          */
         gesture: function(duration, points) {
-            return $autojs.invoke('automator.gesture', duration, points);
+            return $richauto.invoke('automator.gesture', duration, points);
         },
         
         /**
@@ -84,7 +84,7 @@
          * @returns {Promise<boolean>}
          */
         gestures: function(gestureArray) {
-            return $autojs.invoke('automator.gestures', gestureArray);
+            return $richauto.invoke('automator.gestures', gestureArray);
         },
         
         // ==================== Root 权限简单命令 ====================
@@ -96,7 +96,7 @@
          * @returns {Promise<void>}
          */
         Tap: function(x, y) {
-            return $autojs.invoke('automator.Tap', x, y);
+            return $richauto.invoke('automator.Tap', x, y);
         },
         
         /**
@@ -106,7 +106,7 @@
          */
         Swipe: function() {
             var args = ['automator.Swipe'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== 基于控件的操作 ====================
@@ -123,7 +123,7 @@
              */
             enable: function() {
                 var args = ['automator.auto'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -131,7 +131,7 @@
              * @returns {Promise<void>}
              */
             waitFor: function() {
-                return $autojs.invoke('automator.auto.waitFor');
+                return $richauto.invoke('automator.auto.waitFor');
             },
             
             /**
@@ -140,7 +140,7 @@
              * @returns {Promise<void>}
              */
             setMode: function(mode) {
-                return $autojs.invoke('automator.auto.setMode', mode);
+                return $richauto.invoke('automator.auto.setMode', mode);
             },
             
             /**
@@ -149,7 +149,7 @@
              * @returns {Promise<void>}
              */
             setFlags: function(flags) {
-                return $autojs.invoke('automator.auto.setFlags', flags);
+                return $richauto.invoke('automator.auto.setFlags', flags);
             },
             
             /**
@@ -157,7 +157,7 @@
              * @returns {Promise<any>}
              */
             getService: function() {
-                return $autojs.invoke('automator.auto.service');
+                return $richauto.invoke('automator.auto.service');
             },
             
             /**
@@ -165,7 +165,7 @@
              * @returns {Promise<Array>}
              */
             getWindows: function() {
-                return $autojs.invoke('automator.auto.windows');
+                return $richauto.invoke('automator.auto.windows');
             },
             
             /**
@@ -173,7 +173,7 @@
              * @returns {Promise<any>}
              */
             getRoot: function() {
-                return $autojs.invoke('automator.auto.root');
+                return $richauto.invoke('automator.auto.root');
             },
             
             /**
@@ -181,7 +181,7 @@
              * @returns {Promise<any>}
              */
             getRootInActiveWindow: function() {
-                return $autojs.invoke('automator.auto.rootInActiveWindow');
+                return $richauto.invoke('automator.auto.rootInActiveWindow');
             },
             
             /**
@@ -190,7 +190,7 @@
              * @returns {Promise<void>}
              */
             setWindowFilter: function(filter) {
-                return $autojs.invoke('automator.auto.setWindowFilter', filter);
+                return $richauto.invoke('automator.auto.setWindowFilter', filter);
             },
             
             /**
@@ -198,7 +198,7 @@
              * @returns {Promise<Array>}
              */
             getWindowRoots: function() {
-                return $autojs.invoke('automator.auto.windowRoots');
+                return $richauto.invoke('automator.auto.windowRoots');
             }
         },
         
@@ -212,7 +212,7 @@
          */
         clickText: function() {
             var args = ['automator.clickText'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -223,7 +223,7 @@
          */
         longClickText: function() {
             var args = ['automator.longClickText'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -234,7 +234,7 @@
          */
         scrollUp: function() {
             var args = ['automator.scrollUp'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -245,7 +245,7 @@
          */
         scrollDown: function() {
             var args = ['automator.scrollDown'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -256,7 +256,7 @@
          */
         setText: function() {
             var args = ['automator.setText'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -267,7 +267,7 @@
          */
         input: function() {
             var args = ['automator.input'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         // ==================== RootAutomator ====================
@@ -281,7 +281,7 @@
              * @returns {Promise<string>}
              */
             create: function() {
-                return $autojs.invoke('automator.RootAutomator.create');
+                return $richauto.invoke('automator.RootAutomator.create');
             },
             
             /**
@@ -291,7 +291,7 @@
              */
             tap: function() {
                 var args = ['automator.RootAutomator.tap'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -301,7 +301,7 @@
              */
             swipe: function() {
                 var args = ['automator.RootAutomator.swipe'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -311,7 +311,7 @@
              */
             press: function() {
                 var args = ['automator.RootAutomator.press'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -321,7 +321,7 @@
              */
             longPress: function() {
                 var args = ['automator.RootAutomator.longPress'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -331,7 +331,7 @@
              */
             touchDown: function() {
                 var args = ['automator.RootAutomator.touchDown'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -341,7 +341,7 @@
              */
             touchMove: function() {
                 var args = ['automator.RootAutomator.touchMove'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -351,7 +351,7 @@
              */
             touchUp: function() {
                 var args = ['automator.RootAutomator.touchUp'].concat(Array.prototype.slice.call(arguments));
-                return $autojs.invoke.apply($autojs, args);
+                return $richauto.invoke.apply($richauto, args);
             },
             
             /**
@@ -359,13 +359,13 @@
              * @returns {Promise<void>}
              */
             exit: function() {
-                return $autojs.invoke('automator.RootAutomator.exit');
+                return $richauto.invoke('automator.RootAutomator.exit');
             }
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.automator = automatorModule;
+    window.__richauto_modules.automator = automatorModule;
     
 })(window);
 

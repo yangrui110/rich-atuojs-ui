@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // App 模块定义
     var appModule = {
@@ -17,7 +17,7 @@
          * @returns {Promise<number>}
          */
         getVersionCode: function() {
-            return $autojs.invoke('app.versionCode');
+            return $richauto.invoke('app.versionCode');
         },
         
         /**
@@ -25,19 +25,19 @@
          * @returns {Promise<string>}
          */
         getVersionName: function() {
-            return $autojs.invoke('app.versionName');
+            return $richauto.invoke('app.versionName');
         },
         
         /**
-         * autojs 对象 - AutoJS 版本信息
+         * richauto 对象 - AutoJS 版本信息
          */
-        autojs: {
+        richauto: {
             /**
              * 获取 AutoJS 版本号
              * @returns {Promise<number>}
              */
             getVersionCode: function() {
-                return $autojs.invoke('app.autojs.versionCode');
+                return $richauto.invoke('app.richauto.versionCode');
             },
             
             /**
@@ -45,7 +45,7 @@
              * @returns {Promise<string>}
              */
             getVersionName: function() {
-                return $autojs.invoke('app.autojs.versionName');
+                return $richauto.invoke('app.richauto.versionName');
             }
         },
         
@@ -57,7 +57,7 @@
          * @returns {Promise<boolean>}
          */
         launchApp: function(appName) {
-            return $autojs.invoke('app.launchApp', appName);
+            return $richauto.invoke('app.launchApp', appName);
         },
         
         /**
@@ -66,7 +66,7 @@
          * @returns {Promise<boolean>}
          */
         launch: function(packageName) {
-            return $autojs.invoke('app.launch', packageName);
+            return $richauto.invoke('app.launch', packageName);
         },
         
         /**
@@ -75,7 +75,7 @@
          * @returns {Promise<boolean>}
          */
         launchPackage: function(packageName) {
-            return $autojs.invoke('app.launchPackage', packageName);
+            return $richauto.invoke('app.launchPackage', packageName);
         },
         
         // ==================== 应用信息获取 ====================
@@ -86,7 +86,7 @@
          * @returns {Promise<string|null>}
          */
         getPackageName: function(appName) {
-            return $autojs.invoke('app.getPackageName', appName);
+            return $richauto.invoke('app.getPackageName', appName);
         },
         
         /**
@@ -95,7 +95,7 @@
          * @returns {Promise<string|null>}
          */
         getAppName: function(packageName) {
-            return $autojs.invoke('app.getAppName', packageName);
+            return $richauto.invoke('app.getAppName', packageName);
         },
         
         // ==================== 应用操作 ====================
@@ -106,7 +106,7 @@
          * @returns {Promise<boolean>}
          */
         openAppSetting: function(packageName) {
-            return $autojs.invoke('app.openAppSetting', packageName);
+            return $richauto.invoke('app.openAppSetting', packageName);
         },
         
         /**
@@ -115,7 +115,7 @@
          * @returns {Promise<void>}
          */
         uninstall: function(packageName) {
-            return $autojs.invoke('app.uninstall', packageName);
+            return $richauto.invoke('app.uninstall', packageName);
         },
         
         // ==================== 文件操作 ====================
@@ -126,7 +126,7 @@
          * @returns {Promise<void>}
          */
         viewFile: function(path) {
-            return $autojs.invoke('app.viewFile', path);
+            return $richauto.invoke('app.viewFile', path);
         },
         
         /**
@@ -135,7 +135,7 @@
          * @returns {Promise<void>}
          */
         editFile: function(path) {
-            return $autojs.invoke('app.editFile', path);
+            return $richauto.invoke('app.editFile', path);
         },
         
         // ==================== URL 和邮件 ====================
@@ -146,7 +146,7 @@
          * @returns {Promise<void>}
          */
         openUrl: function(url) {
-            return $autojs.invoke('app.openUrl', url);
+            return $richauto.invoke('app.openUrl', url);
         },
         
         /**
@@ -161,7 +161,7 @@
          * @returns {Promise<void>}
          */
         sendEmail: function(options) {
-            return $autojs.invoke('app.sendEmail', options);
+            return $richauto.invoke('app.sendEmail', options);
         },
         
         // ==================== Activity 和 Intent ====================
@@ -175,7 +175,7 @@
          */
         startActivity: function() {
             var args = ['app.startActivity'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -193,7 +193,7 @@
          * @returns {Promise<any>}
          */
         intent: function(options) {
-            return $autojs.invoke('app.intent', options);
+            return $richauto.invoke('app.intent', options);
         },
         
         /**
@@ -202,7 +202,7 @@
          * @returns {Promise<string>}
          */
         intentToShell: function(options) {
-            return $autojs.invoke('app.intentToShell', options);
+            return $richauto.invoke('app.intentToShell', options);
         },
         
         // ==================== 广播和服务 ====================
@@ -216,7 +216,7 @@
          */
         sendBroadcast: function() {
             var args = ['app.sendBroadcast'].concat(Array.prototype.slice.call(arguments));
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -225,7 +225,7 @@
          * @returns {Promise<void>}
          */
         startService: function(options) {
-            return $autojs.invoke('app.startService', options);
+            return $richauto.invoke('app.startService', options);
         },
         
         // ==================== Uri 操作 ====================
@@ -236,7 +236,7 @@
          * @returns {Promise<string|null>}
          */
         parseUri: function(uri) {
-            return $autojs.invoke('app.parseUri', uri);
+            return $richauto.invoke('app.parseUri', uri);
         },
         
         /**
@@ -245,12 +245,12 @@
          * @returns {Promise<string|null>}
          */
         getUriForFile: function(path) {
-            return $autojs.invoke('app.getUriForFile', path);
+            return $richauto.invoke('app.getUriForFile', path);
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.app = appModule;
+    window.__richauto_modules.app = appModule;
     
 })(window);
 

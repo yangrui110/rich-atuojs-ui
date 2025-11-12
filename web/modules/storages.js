@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     /**
      * Storage 类 - 封装本地存储实例
@@ -22,7 +22,7 @@
      * @returns {Promise<boolean>}
      */
     Storage.prototype.put = function(key, value) {
-        return $autojs.invoke('storage.put', this.name, key, value);
+        return $richauto.invoke('storage.put', this.name, key, value);
     };
     
     /**
@@ -32,7 +32,7 @@
      * @returns {Promise<*>}
      */
     Storage.prototype.get = function(key, defaultValue) {
-        return $autojs.invoke('storage.get', this.name, key, defaultValue);
+        return $richauto.invoke('storage.get', this.name, key, defaultValue);
     };
     
     /**
@@ -41,7 +41,7 @@
      * @returns {Promise<boolean>}
      */
     Storage.prototype.remove = function(key) {
-        return $autojs.invoke('storage.remove', this.name, key);
+        return $richauto.invoke('storage.remove', this.name, key);
     };
     
     /**
@@ -49,7 +49,7 @@
      * @returns {Promise<boolean>}
      */
     Storage.prototype.clear = function() {
-        return $autojs.invoke('storage.clear', this.name);
+        return $richauto.invoke('storage.clear', this.name);
     };
     
     /**
@@ -58,7 +58,7 @@
      * @returns {Promise<boolean>}
      */
     Storage.prototype.contains = function(key) {
-        return $autojs.invoke('storage.contains', this.name, key);
+        return $richauto.invoke('storage.contains', this.name, key);
     };
     
     // Storages 模块定义
@@ -70,7 +70,7 @@
          */
         create: function(name) {
             // 同步调用，创建存储实例
-            $autojs.invoke('storages.create', name).catch(function(err) {
+            $richauto.invoke('storages.create', name).catch(function(err) {
                 console.error('创建存储失败:', err);
             });
             // 返回 Storage 实例
@@ -83,12 +83,12 @@
          * @returns {Promise<boolean>} name 参数对应的本地存储是否存在
          */
         remove: function(name) {
-            return $autojs.invoke('storages.remove', name);
+            return $richauto.invoke('storages.remove', name);
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.storages = storagesModule;
+    window.__richauto_modules.storages = storagesModule;
     
 })(window);
 

@@ -73,21 +73,21 @@ export default {
         // 创建或获取存储
         testCreate() {
             try {
-                this.currentStorage = autojs.storages.create(this.storageName);
-                autojs.global.toastLog(`存储 "${this.storageName}" 创建成功`);
+                this.currentStorage = richauto.storages.create(this.storageName);
+                richauto.global.toastLog(`存储 "${this.storageName}" 创建成功`);
             } catch (err) {
-                autojs.global.toastLog('创建失败: ' + err);
+                richauto.global.toastLog('创建失败: ' + err);
             }
         },
         
         // 删除存储
         async testRemove() {
             try {
-                const existed = await autojs.storages.remove(this.storageName);
-                autojs.global.toastLog(`删除存储 "${this.storageName}": ${existed ? '存在并已删除' : '不存在'}`);
+                const existed = await richauto.storages.remove(this.storageName);
+                richauto.global.toastLog(`删除存储 "${this.storageName}": ${existed ? '存在并已删除' : '不存在'}`);
                 this.currentStorage = null;
             } catch (err) {
-                autojs.global.toastLog('删除失败: ' + err);
+                richauto.global.toastLog('删除失败: ' + err);
             }
         },
         
@@ -96,7 +96,7 @@ export default {
         // 存入数据
         async testPut() {
             if (!this.currentStorage) {
-                this.currentStorage = autojs.storages.create(this.storageName);
+                this.currentStorage = richauto.storages.create(this.storageName);
             }
             
             try {
@@ -109,66 +109,66 @@ export default {
                 }
                 
                 await this.currentStorage.put(this.dataKey, value);
-                autojs.global.toastLog(`已存入: ${this.dataKey} = ${this.dataValue}`);
+                richauto.global.toastLog(`已存入: ${this.dataKey} = ${this.dataValue}`);
             } catch (err) {
-                autojs.global.toastLog('存入失败: ' + err);
+                richauto.global.toastLog('存入失败: ' + err);
             }
         },
         
         // 读取数据
         async testGet() {
             if (!this.currentStorage) {
-                this.currentStorage = autojs.storages.create(this.storageName);
+                this.currentStorage = richauto.storages.create(this.storageName);
             }
             
             try {
                 const value = await this.currentStorage.get(this.dataKey);
                 const displayValue = typeof value === 'object' ? JSON.stringify(value) : value;
-                autojs.global.toastLog(`读取 ${this.dataKey}: ${displayValue}`);
+                richauto.global.toastLog(`读取 ${this.dataKey}: ${displayValue}`);
             } catch (err) {
-                autojs.global.toastLog('读取失败: ' + err);
+                richauto.global.toastLog('读取失败: ' + err);
             }
         },
         
         // 检查键是否存在
         async testContains() {
             if (!this.currentStorage) {
-                this.currentStorage = autojs.storages.create(this.storageName);
+                this.currentStorage = richauto.storages.create(this.storageName);
             }
             
             try {
                 const exists = await this.currentStorage.contains(this.dataKey);
-                autojs.global.toastLog(`键 "${this.dataKey}" ${exists ? '存在' : '不存在'}`);
+                richauto.global.toastLog(`键 "${this.dataKey}" ${exists ? '存在' : '不存在'}`);
             } catch (err) {
-                autojs.global.toastLog('检查失败: ' + err);
+                richauto.global.toastLog('检查失败: ' + err);
             }
         },
         
         // 删除键
         async testRemoveKey() {
             if (!this.currentStorage) {
-                this.currentStorage = autojs.storages.create(this.storageName);
+                this.currentStorage = richauto.storages.create(this.storageName);
             }
             
             try {
                 await this.currentStorage.remove(this.dataKey);
-                autojs.global.toastLog(`已删除键: ${this.dataKey}`);
+                richauto.global.toastLog(`已删除键: ${this.dataKey}`);
             } catch (err) {
-                autojs.global.toastLog('删除失败: ' + err);
+                richauto.global.toastLog('删除失败: ' + err);
             }
         },
         
         // 清空所有数据
         async testClear() {
             if (!this.currentStorage) {
-                this.currentStorage = autojs.storages.create(this.storageName);
+                this.currentStorage = richauto.storages.create(this.storageName);
             }
             
             try {
                 await this.currentStorage.clear();
-                autojs.global.toastLog('已清空所有数据');
+                richauto.global.toastLog('已清空所有数据');
             } catch (err) {
-                autojs.global.toastLog('清空失败: ' + err);
+                richauto.global.toastLog('清空失败: ' + err);
             }
         },
         
@@ -176,7 +176,7 @@ export default {
         
         // 测试复杂类型
         async testComplexTypes() {
-            const sto = autojs.storages.create('complex-test');
+            const sto = richauto.storages.create('complex-test');
             
             try {
                 // 数字
@@ -192,15 +192,15 @@ export default {
                 // 对象
                 await sto.put('object', { name: '张三', age: 25, hobbies: ['读书', '旅游'] });
                 
-                autojs.global.toastLog('已存入所有复杂类型数据');
+                richauto.global.toastLog('已存入所有复杂类型数据');
             } catch (err) {
-                autojs.global.toastLog('存入失败: ' + err);
+                richauto.global.toastLog('存入失败: ' + err);
             }
         },
         
         // 读取复杂类型
         async testReadComplexTypes() {
-            const sto = autojs.storages.create('complex-test');
+            const sto = richauto.storages.create('complex-test');
             
             try {
                 const number = await sto.get('number');
@@ -217,9 +217,9 @@ export default {
                 console.log('array:', array, Array.isArray(array));
                 console.log('object:', object, typeof object);
                 
-                autojs.global.toastLog('已读取所有数据，请查看控制台');
+                richauto.global.toastLog('已读取所有数据，请查看控制台');
             } catch (err) {
-                autojs.global.toastLog('读取失败: ' + err);
+                richauto.global.toastLog('读取失败: ' + err);
             }
         },
         
@@ -228,8 +228,8 @@ export default {
         // 测试多存储隔离
         async testMultiStorage() {
             try {
-                const stoFruit = autojs.storages.create('fruit');
-                const stoPhone = autojs.storages.create('phone');
+                const stoFruit = richauto.storages.create('fruit');
+                const stoPhone = richauto.storages.create('phone');
                 
                 // 两个存储都使用相同的键名
                 await stoFruit.put('apple', 7);
@@ -238,13 +238,13 @@ export default {
                 const fruitApple = await stoFruit.get('apple');
                 const phoneApple = await stoPhone.get('apple');
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `存储隔离测试:\n` +
                     `fruit.apple = ${fruitApple}\n` +
                     `phone.apple = ${phoneApple}`
                 );
             } catch (err) {
-                autojs.global.toastLog('测试失败: ' + err);
+                richauto.global.toastLog('测试失败: ' + err);
             }
         },
         
@@ -253,7 +253,7 @@ export default {
         // 应用配置示例
         async testAppConfig() {
             try {
-                const sto = autojs.storages.create('app-config');
+                const sto = richauto.storages.create('app-config');
                 
                 // 保存配置
                 await sto.put('theme', 'dark');
@@ -267,7 +267,7 @@ export default {
                 const autoStart = await sto.get('autoStart', false);
                 const checkInterval = await sto.get('checkInterval', 1800);
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `应用配置:\n` +
                     `主题: ${theme}\n` +
                     `语言: ${language}\n` +
@@ -275,14 +275,14 @@ export default {
                     `检查间隔: ${checkInterval}秒`
                 );
             } catch (err) {
-                autojs.global.toastLog('配置测试失败: ' + err);
+                richauto.global.toastLog('配置测试失败: ' + err);
             }
         },
         
         // 用户数据示例
         async testUserData() {
             try {
-                const sto = autojs.storages.create('user-data');
+                const sto = richauto.storages.create('user-data');
                 
                 // 保存用户数据
                 await sto.put('userInfo', {
@@ -305,14 +305,14 @@ export default {
                 console.log('用户信息:', userInfo);
                 console.log('收藏列表:', favorites);
                 
-                autojs.global.toastLog(
+                richauto.global.toastLog(
                     `用户数据已保存:\n` +
                     `用户: ${userInfo.username}\n` +
                     `邮箱: ${userInfo.email}\n` +
                     `收藏数: ${favorites.length}`
                 );
             } catch (err) {
-                autojs.global.toastLog('用户数据测试失败: ' + err);
+                richauto.global.toastLog('用户数据测试失败: ' + err);
             }
         }
     }

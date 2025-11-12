@@ -6,7 +6,7 @@
     'use strict';
     
     // 确保命名空间存在
-    window.__autojs_modules = window.__autojs_modules || {};
+    window.__richauto_modules = window.__richauto_modules || {};
     
     // Image 模块定义
     var imageModule = {
@@ -18,7 +18,7 @@
          * @returns {Promise<Image>}
          */
         read: function(path) {
-            return $autojs.invoke('image.read', path);
+            return $richauto.invoke('image.read', path);
         },
         
         /**
@@ -27,7 +27,7 @@
          * @returns {Promise<Image>}
          */
         load: function(url) {
-            return $autojs.invoke('image.load', url);
+            return $richauto.invoke('image.load', url);
         },
         
         /**
@@ -36,7 +36,7 @@
          * @returns {Promise<Image>}
          */
         copy: function(img) {
-            return $autojs.invoke('image.copy', img);
+            return $richauto.invoke('image.copy', img);
         },
         
         /**
@@ -51,7 +51,7 @@
             var args = ['image.save', image, path];
             if (format !== undefined) args.push(format);
             if (quality !== undefined) args.push(quality);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -60,7 +60,7 @@
          * @returns {Promise<Image>}
          */
         fromBase64: function(base64) {
-            return $autojs.invoke('image.fromBase64', base64);
+            return $richauto.invoke('image.fromBase64', base64);
         },
         
         /**
@@ -74,7 +74,7 @@
             var args = ['image.toBase64', img];
             if (format !== undefined) args.push(format);
             if (quality !== undefined) args.push(quality);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -83,7 +83,7 @@
          * @returns {Promise<Image>}
          */
         fromBytes: function(bytes) {
-            return $autojs.invoke('image.fromBytes', bytes);
+            return $richauto.invoke('image.fromBytes', bytes);
         },
         
         /**
@@ -97,7 +97,7 @@
             var args = ['image.toBytes', img];
             if (format !== undefined) args.push(format);
             if (quality !== undefined) args.push(quality);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -110,7 +110,7 @@
          * @returns {Promise<Image>}
          */
         clip: function(img, x, y, w, h) {
-            return $autojs.invoke('image.clip', img, x, y, w, h);
+            return $richauto.invoke('image.clip', img, x, y, w, h);
         },
         
         /**
@@ -123,7 +123,7 @@
         resize: function(img, size, interpolation) {
             var args = ['image.resize', img, size];
             if (interpolation !== undefined) args.push(interpolation);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -137,7 +137,7 @@
         scale: function(img, fx, fy, interpolation) {
             var args = ['image.scale', img, fx, fy];
             if (interpolation !== undefined) args.push(interpolation);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -152,7 +152,7 @@
             var args = ['image.rotate', img, degree];
             if (x !== undefined) args.push(x);
             if (y !== undefined) args.push(y);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -165,7 +165,7 @@
         concat: function(img1, img2, direction) {
             var args = ['image.concat', img1, img2];
             if (direction !== undefined) args.push(direction);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -174,7 +174,7 @@
          * @returns {Promise<Image>}
          */
         grayscale: function(img) {
-            return $autojs.invoke('image.grayscale', img);
+            return $richauto.invoke('image.grayscale', img);
         },
         
         /**
@@ -188,7 +188,7 @@
         threshold: function(img, threshold, maxVal, type) {
             var args = ['image.threshold', img, threshold, maxVal];
             if (type !== undefined) args.push(type);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -202,7 +202,7 @@
          * @returns {Promise<Image>}
          */
         adaptiveThreshold: function(img, maxValue, adaptiveMethod, thresholdType, blockSize, C) {
-            return $autojs.invoke('image.adaptiveThreshold', img, maxValue, adaptiveMethod, thresholdType, blockSize, C);
+            return $richauto.invoke('image.adaptiveThreshold', img, maxValue, adaptiveMethod, thresholdType, blockSize, C);
         },
         
         /**
@@ -215,7 +215,7 @@
         cvtColor: function(img, code, dstCn) {
             var args = ['image.cvtColor', img, code];
             if (dstCn !== undefined) args.push(dstCn);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -226,7 +226,7 @@
          * @returns {Promise<Image>}
          */
         inRange: function(img, lowerBound, upperBound) {
-            return $autojs.invoke('image.inRange', img, lowerBound, upperBound);
+            return $richauto.invoke('image.inRange', img, lowerBound, upperBound);
         },
         
         /**
@@ -237,7 +237,7 @@
          * @returns {Promise<Image>}
          */
         interval: function(img, color, interval) {
-            return $autojs.invoke('image.interval', img, color, interval);
+            return $richauto.invoke('image.interval', img, color, interval);
         },
         
         /**
@@ -252,7 +252,7 @@
             var args = ['image.blur', img, size];
             if (anchor !== undefined) args.push(anchor);
             if (type !== undefined) args.push(type);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -262,7 +262,7 @@
          * @returns {Promise<Image>}
          */
         medianBlur: function(img, size) {
-            return $autojs.invoke('image.medianBlur', img, size);
+            return $richauto.invoke('image.medianBlur', img, size);
         },
         
         /**
@@ -279,7 +279,7 @@
             if (sigmaX !== undefined) args.push(sigmaX);
             if (sigmaY !== undefined) args.push(sigmaY);
             if (type !== undefined) args.push(type);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -288,7 +288,7 @@
          * @returns {Promise<Image>}
          */
         matToImage: function(mat) {
-            return $autojs.invoke('image.matToImage', mat);
+            return $richauto.invoke('image.matToImage', mat);
         },
         
         // ==================== 找图找色 ====================
@@ -301,7 +301,7 @@
         requestScreenCapture: function(landscape) {
             var args = ['image.requestScreenCapture'];
             if (landscape !== undefined) args.push(landscape);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -312,7 +312,7 @@
         captureScreen: function(path) {
             var args = ['image.captureScreen'];
             if (path !== undefined) args.push(path);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -323,7 +323,7 @@
          * @returns {Promise<number>}
          */
         pixel: function(image, x, y) {
-            return $autojs.invoke('image.pixel', image, x, y);
+            return $richauto.invoke('image.pixel', image, x, y);
         },
         
         /**
@@ -334,7 +334,7 @@
          * @returns {Promise<Point>}
          */
         findColor: function(image, color, options) {
-            return $autojs.invoke('image.findColor', image, color, options);
+            return $richauto.invoke('image.findColor', image, color, options);
         },
         
         /**
@@ -353,7 +353,7 @@
             if (width !== undefined) args.push(width);
             if (height !== undefined) args.push(height);
             if (threshold !== undefined) args.push(threshold);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -372,7 +372,7 @@
             if (y !== undefined) args.push(y);
             if (width !== undefined) args.push(width);
             if (height !== undefined) args.push(height);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -384,7 +384,7 @@
          * @returns {Promise<Point>}
          */
         findMultiColors: function(img, firstColor, colors, options) {
-            return $autojs.invoke('image.findMultiColors', img, firstColor, colors, options);
+            return $richauto.invoke('image.findMultiColors', img, firstColor, colors, options);
         },
         
         /**
@@ -401,7 +401,7 @@
             var args = ['image.detectsColor', image, color, x, y];
             if (threshold !== undefined) args.push(threshold);
             if (algorithm !== undefined) args.push(algorithm);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -412,7 +412,7 @@
          * @returns {Promise<Point>}
          */
         findImage: function(img, template, options) {
-            return $autojs.invoke('image.findImage', img, template, options);
+            return $richauto.invoke('image.findImage', img, template, options);
         },
         
         /**
@@ -431,7 +431,7 @@
             if (width !== undefined) args.push(width);
             if (height !== undefined) args.push(height);
             if (threshold !== undefined) args.push(threshold);
-            return $autojs.invoke.apply($autojs, args);
+            return $richauto.invoke.apply($richauto, args);
         },
         
         /**
@@ -442,12 +442,12 @@
          * @returns {Promise<MatchingResult>}
          */
         matchTemplate: function(img, template, options) {
-            return $autojs.invoke('image.matchTemplate', img, template, options);
+            return $richauto.invoke('image.matchTemplate', img, template, options);
         }
     };
     
     // 挂载到临时命名空间
-    window.__autojs_modules.image = imageModule;
+    window.__richauto_modules.image = imageModule;
     
 })(window);
 

@@ -58,53 +58,53 @@ export default {
         
         // 测试 sleep
         async testSleep() {
-            autojs.global.toastLog('开始测试 sleep...');
+            richauto.global.toastLog('开始测试 sleep...');
             const startTime = Date.now();
             
-            await autojs.global.sleep(2000);
+            await richauto.global.sleep(2000);
             
             const elapsed = Date.now() - startTime;
-            autojs.global.toastLog(`sleep 完成！实际耗时: ${elapsed}ms`);
+            richauto.global.toastLog(`sleep 完成！实际耗时: ${elapsed}ms`);
         },
         
         // 测试 toast
         testToast() {
-            autojs.global.toast('Hello from autojs.global.toast()! 🎉');
+            richauto.global.toast('Hello from richauto.global.toast()! 🎉');
         },
         
         // 测试 toastLog
         testToastLog() {
-            autojs.global.toastLog('这是一条 toastLog 消息，同时会打印到日志');
+            richauto.global.toastLog('这是一条 toastLog 消息，同时会打印到日志');
         },
         
         // 测试 random
         async testRandom() {
-            const randomValue1 = await autojs.global.random();
-            const randomValue2 = await autojs.global.random(1, 100);
-            autojs.global.toastLog(`随机数:\n无参: ${randomValue1.toFixed(4)}\n[1-100]: ${randomValue2}`);
+            const randomValue1 = await richauto.global.random();
+            const randomValue2 = await richauto.global.random(1, 100);
+            richauto.global.toastLog(`随机数:\n无参: ${randomValue1.toFixed(4)}\n[1-100]: ${randomValue2}`);
         },
         
         // ==================== 系统信息测试 ====================
         
         // 测试获取当前包名和Activity
         async testCurrentInfo() {
-            const pkg = await autojs.global.currentPackage();
-            const act = await autojs.global.currentActivity();
-            autojs.global.toastLog(`当前包名: ${pkg}\n当前Activity: ${act}`);
+            const pkg = await richauto.global.currentPackage();
+            const act = await richauto.global.currentActivity();
+            richauto.global.toastLog(`当前包名: ${pkg}\n当前Activity: ${act}`);
         },
         
         // 测试剪贴板
         async testClipboard() {
-            await autojs.global.setClip('测试剪贴板内容 - AutoJS6');
-            const clipContent = await autojs.global.getClip();
-            autojs.global.toastLog(`剪贴板内容: ${clipContent}`);
+            await richauto.global.setClip('测试剪贴板内容 - AutoJS6');
+            const clipContent = await richauto.global.getClip();
+            richauto.global.toastLog(`剪贴板内容: ${clipContent}`);
         },
         
         // 测试屏幕尺寸
         async testScreenSize() {
-            const width = await autojs.global.WIDTH;
-            const height = await autojs.global.HEIGHT;
-            autojs.global.toastLog(`屏幕尺寸:\n宽度: ${width}px\n高度: ${height}px`);
+            const width = await richauto.global.WIDTH;
+            const height = await richauto.global.HEIGHT;
+            richauto.global.toastLog(`屏幕尺寸:\n宽度: ${width}px\n高度: ${height}px`);
         },
         
         // ==================== 类型判断测试 ====================
@@ -123,11 +123,11 @@ export default {
             
             let result = '类型判断测试:\n';
             for (const item of testData) {
-                const type = await autojs.global.species(item.value);
+                const type = await richauto.global.species(item.value);
                 result += `${item.label}: ${type}\n`;
             }
             
-            autojs.global.toastLog(result);
+            richauto.global.toastLog(result);
         },
         
         // 测试类型判断方法
@@ -147,10 +147,10 @@ export default {
             let result = '类型判断方法测试:\n';
             
             for (const item of testData) {
-                const isString = await autojs.global.isString(item);
-                const isNumber = await autojs.global.isNumber(item);
-                const isArray = await autojs.global.isArray(item);
-                const isObject = await autojs.global.isObject(item);
+                const isString = await richauto.global.isString(item);
+                const isNumber = await richauto.global.isNumber(item);
+                const isArray = await richauto.global.isArray(item);
+                const isObject = await richauto.global.isObject(item);
                 
                 if (isString) result += `"${item}" 是字符串\n`;
                 else if (isNumber) result += `${item} 是数字\n`;
@@ -158,14 +158,14 @@ export default {
                 else if (isObject) result += `${JSON.stringify(item)} 是对象\n`;
             }
             
-            autojs.global.toastLog(result);
+            richauto.global.toastLog(result);
         },
         
         // ==================== 等待方法测试 ====================
         
         // 测试 wait 函数
         async testWait() {
-            autojs.global.toastLog('开始测试 wait 函数...');
+            richauto.global.toastLog('开始测试 wait 函数...');
             
             let counter = 0;
             const condition = () => {
@@ -173,8 +173,8 @@ export default {
                 return counter >= 3;
             };
             
-            const result = await autojs.global.wait(condition, 100);
-            autojs.global.toastLog(`wait 完成！条件满足，检查了 ${counter} 次`);
+            const result = await richauto.global.wait(condition, 100);
+            richauto.global.toastLog(`wait 完成！条件满足，检查了 ${counter} 次`);
         },
         
         // ==================== 坐标标度测试 ====================
@@ -188,12 +188,12 @@ export default {
             const designY = 960;  // 设计图中的 Y 坐标
             
             // 获取实际坐标
-            const actualX = await autojs.global.cX(designX, designWidth);
-            const actualY = await autojs.global.cY(designY, designHeight);
-            const actualYx = await autojs.global.cYx(designY, designWidth);
-            const actualXy = await autojs.global.cXy(designX, designHeight);
+            const actualX = await richauto.global.cX(designX, designWidth);
+            const actualY = await richauto.global.cY(designY, designHeight);
+            const actualYx = await richauto.global.cYx(designY, designWidth);
+            const actualXy = await richauto.global.cXy(designX, designHeight);
             
-            autojs.global.toastLog(
+            richauto.global.toastLog(
                 `坐标标度测试:\n` +
                 `设计坐标: (${designX}, ${designY})\n` +
                 `cX: ${actualX}\n` +
