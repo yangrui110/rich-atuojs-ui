@@ -19,16 +19,7 @@ module.exports = {
         jsBridge.handle('app.versionName', function(event) {
             return app.versionName;
         });
-        
-        // 获取 RichAuto 版本号
-        jsBridge.handle('app.richauto.versionCode', function(event) {
-            return app.autojs.versionCode;
-        });
-        
-        // 获取 RichAuto 版本名称
-        jsBridge.handle('app.richauto.versionName', function(event) {
-            return app.autojs.versionName;
-        });
+
         
         // ==================== 应用启动 ====================
         

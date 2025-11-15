@@ -23,4 +23,17 @@ pluginUtils.initWebView(web, moduleRegister, 'web/index.html');
 // let img = images.captureScreen();
 // ocr(img);
 
+// 监听返回键
+ui.emitter.on("back_pressed", (event) => {
+  // 阻止默认返回（否则界面会直接关闭）
+  event.consumed = true;
 
+  dialogs.build({
+    title: "确认退出？",
+    content: "是否退出应用",
+    positive: "退出",
+    negative: "取消"
+  }).on("positive", () => {
+    exit()
+  }).show();
+});

@@ -37,7 +37,7 @@
              * @returns {Promise<number>}
              */
             getVersionCode: function() {
-                return $richauto.invoke('app.richauto.versionCode');
+                return $richauto.invoke('app.versionCode');
             },
             
             /**
@@ -45,7 +45,7 @@
              * @returns {Promise<string>}
              */
             getVersionName: function() {
-                return $richauto.invoke('app.richauto.versionName');
+                return $richauto.invoke('app.versionName');
             }
         },
         
