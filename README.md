@@ -54,7 +54,6 @@
   <img src="img/6.png" width="200" alt="功能测试" />
   <img src="img/7.png" width="200" alt="模块演示" />
   <img src="img/8.png" width="200" alt="业务功能" />
-  <img src="img/9.png" width="200" alt="业务功能" />
 </div>
 
 ---
