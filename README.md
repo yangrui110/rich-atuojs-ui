@@ -25,7 +25,7 @@
 
 ***github项目地址:*** [github](https://github.com/hubeishanling/rich-auto-ui)
 
-***视频教程***： 暂时未发布
+***视频教程***： [【B站视频1】](https://www.bilibili.com/video/BV1eWCyBoE1R/) [【B站视频2】](https://www.bilibili.com/video/BV1qJCyB8Evo/)
 
 ***QQ交流群***： 726703994
 
