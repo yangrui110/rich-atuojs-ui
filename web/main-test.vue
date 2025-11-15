@@ -1,6 +1,6 @@
 <template>
     <van-row>
-        <van-nav-bar title="AutoJS6 UI 测试"/>
+        <van-nav-bar title="RichAuto UI 测试"/>
 
         <van-tabs v-model="activeTab">
 

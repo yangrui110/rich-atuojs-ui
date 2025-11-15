@@ -56,7 +56,7 @@ export default {
     data() {
         return {
             // 应用信息
-            appName: 'AutoJS脚本管理器',
+            appName: 'RichAuto脚本管理器',
             appVersion: 'v1.0.0',
             developer: 'Developer',
             
