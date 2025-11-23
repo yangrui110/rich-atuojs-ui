@@ -221,7 +221,7 @@ module.exports = {
         
         if (this.isPluginMode()) {
             console.log('可用脚本数:', this.getScriptPaths().length);
-            console.log('脚本列表:', JSON.stringify(this.getScriptPaths(), null, 2));
+            // console.log('脚本列表:', JSON.stringify(this.getScriptPaths(), null, 2));
         }
         
         console.log('============================');
@@ -261,7 +261,7 @@ module.exports = {
         // 1. 设置 WebViewClient 来拦截资源请求（插件模式）
         if (self.isPluginMode()) {
             try {
-                var PluginWebViewClient = org.autojs.autojs.core.plugin.PluginWebViewClient;
+                var PluginWebViewClient = org.shanling.richauto.core.plugin.PluginWebViewClient;
                 var webViewClient = new PluginWebViewClient($registry, "web/", context);
                 webview.setWebViewClient(webViewClient);
                 console.log('[Plugin] 已设置 PluginWebViewClient，支持加载加密资源');

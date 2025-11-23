@@ -1,0 +1,196 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 加载动画样式 */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+        
+        #loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1989fa;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .loading-progress {
+            margin-top: 10px;
+            width: 200px;
+            height: 4px;
+            background: #f0f0f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .loading-progress-bar {
+            height: 100%;
+            background: #1989fa;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .loading-detail {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 加载动画遮罩 -->
+<div id="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">正在加载模块...</div>
+    <div class="loading-progress">
+        <div class="loading-progress-bar" id="loading-progress-bar"></div>
+    </div>
+    <div class="loading-detail" id="loading-detail">0 / 0</div>
+</div>
+
+<div id="app"></div>
+<link rel="stylesheet" href="ext/index.css"/>
+
+<script src="ext/vue.min.js"></script>
+<script src="ext/vue2-sfc-loader.js"></script>
+<script src="ext/vant.min.js"></script>
+<script src="richauto://events.js"></script>
+<script src="richauto://sdk/v1.js"></script>
+<!-- RichAuto 模块加载器 - 只需引入这一个文件 -->
+<script src="modules/init.js"></script>
+<script>
+    let { loadModule, vueVersion } = window['vue2-sfc-loader'];
+    let options = {
+        moduleCache: {
+            vue: Vue,
+            myData: {
+                vueVersion,
+            },
+        },
+        async getFile(url) {
+            let getContentData;
+            if (typeof $richauto !== 'undefined') {
+                let res = await $richauto.invoke('fetch', { path: url });
+                getContentData = (asBinary) => asBinary ? str2ab(res) : res;
+            } else {
+                let res = await fetch(url);
+                if (!res.ok) {
+                    throw Object.assign(new Error(res.statusText + ' ' + url), { res });
+                }
+                getContentData = (asBinary) => asBinary ? res.arrayBuffer() : res.text();
+            }
+            return {
+                getContentData,
+            };
+
+            function str2ab(str) {
+                let buf = new ArrayBuffer(str.length * 2); // 2 bytes for each char
+                let bufView = new Uint16Array(buf);
+                for (let i = 0, strLen = str.length; i < strLen; i++) {
+                    bufView[i] = str.charCodeAt(i);
+                }
+                return buf;
+            }
+        },
+        addStyle(textContent) {
+            const style = Object.assign(document.createElement('style'), { textContent });
+            const ref = document.head.getElementsByTagName('style')[0] || null;
+            document.head.insertBefore(style, ref);
+        },
+    };
+
+    // 初始化 Vue 应用的函数
+    function initVueApp() {
+        // 更新加载提示
+        var loadingText = document.querySelector('.loading-text');
+        var loadingDetail = document.getElementById('loading-detail');
+        var progressBar = document.getElementById('loading-progress-bar');
+        
+        if (loadingText) {
+            loadingText.textContent = '正在初始化应用...';
+        }
+        if (loadingDetail) {
+            loadingDetail.textContent = '加载页面组件';
+        }
+        if (progressBar) {
+            progressBar.style.width = '100%';
+        }
+        
+        loadModule('/config-page/Config.vue', options)
+            .then(function(component) {
+                // 更新提示
+                if (loadingText) {
+                    loadingText.textContent = '正在渲染界面...';
+                }
+                
+                // 挂载 Vue 应用
+                var app = new Vue(component);
+                app.$mount('#app');
+                
+                // Vue 应用挂载完成，使用 nextTick 确保 DOM 已更新
+                app.$nextTick(function() {
+                    // 延迟一小段时间确保渲染完成，然后隐藏加载动画
+                    setTimeout(function() {
+                        if (typeof window.__hideLoading === 'function') {
+                            window.__hideLoading();
+                        }
+                    }, 100);
+                });
+            })
+            .catch(function(error) {
+                console.error('Vue 应用初始化失败:', error);
+                // 隐藏加载动画
+                if (typeof window.__hideLoading === 'function') {
+                    window.__hideLoading();
+                }
+            });
+    }
+    
+    // 等待 richauto 模块加载完成后再初始化 Vue 应用
+    // 如果已经就绪，直接初始化；否则等待事件
+    if (window.__richauto_ready) {
+        console.log('RichAuto 已就绪，直接初始化 Vue');
+        initVueApp();
+    } else {
+        console.log('等待 RichAuto 就绪事件...');
+        window.addEventListener('richauto-ready', function() {
+            console.log('收到 RichAuto 就绪事件');
+            initVueApp();
+        });
+    }
+</script>
+</body>
+
+</html>

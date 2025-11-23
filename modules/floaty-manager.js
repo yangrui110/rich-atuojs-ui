@@ -158,6 +158,8 @@ module.exports = {
         
         // 悬浮 WebView 窗口
         var floatyWebViewWindow = null;
+        var webViewInitTimeout = null;  // 保存 setTimeout 引用，用于清理
+        var isCreatingWebView = false;  // 防止重复创建
         
         // 回调函数存储
         var getScriptStatusCallback = null;
@@ -175,11 +177,42 @@ module.exports = {
          */
         function closeFloatyWebView() {
             try {
+                // 清除定时器
+                if (webViewInitTimeout) {
+                    clearTimeout(webViewInitTimeout);
+                    webViewInitTimeout = null;
+                }
+                
                 if (floatyWebViewWindow) {
+                    // 清理 WebView
+                    try {
+                        var webview = floatyWebViewWindow.webview;
+                        if (webview) {
+                            // 停止加载
+                            webview.stopLoading();
+                            // 清除历史记录
+                            webview.clearHistory();
+                            // 清除缓存
+                            webview.clearCache(true);
+                            // 移除所有视图
+                            webview.removeAllViews();
+                            // 销毁 WebView
+                            webview.destroy();
+                            console.log('悬浮窗: WebView 已销毁');
+                        }
+                    } catch (e) {
+                        console.warn('悬浮窗: 清理 WebView 失败', e.message);
+                    }
+                    
+                    // 关闭窗口
                     floatyWebViewWindow.close();
                     floatyWebViewWindow = null;
                     console.log('悬浮窗: WebView 窗口已关闭');
                 }
+                
+                // 重置创建标志
+                isCreatingWebView = false;
+                
             } catch (e) {
                 console.error('悬浮窗: 关闭 WebView 窗口失败', e.message);
             }
@@ -190,10 +223,19 @@ module.exports = {
          */
         function showFloatyWebView() {
             try {
+                // 防止重复创建
+                if (isCreatingWebView) {
+                    console.warn('悬浮窗: WebView 正在创建中，请稍候');
+                    return;
+                }
+                
                 // 如果已经存在，先关闭
                 if (floatyWebViewWindow) {
                     closeFloatyWebView();
                 }
+                
+                // 设置创建标志
+                isCreatingWebView = true;
                 
                 console.log('悬浮窗: 创建悬浮 WebView 窗口');
                 
@@ -225,8 +267,15 @@ module.exports = {
                 floatyWebViewWindow.setPosition(posX, posY);
                 
                 // 延迟初始化以确保窗口已创建
-                setTimeout(function() {
+                webViewInitTimeout = setTimeout(function() {
                     try {
+                        // 检查窗口是否仍然存在
+                        if (!floatyWebViewWindow) {
+                            console.warn('悬浮窗: WebView 窗口已被关闭，取消初始化');
+                            isCreatingWebView = false;
+                            return;
+                        }
+                        
                         // 设置关闭按钮点击事件
                         floatyWebViewWindow.closeBtn.click(function() {
                             closeFloatyWebView();
@@ -240,8 +289,15 @@ module.exports = {
                         pluginUtils.initWebView(webview, moduleRegister, floatyConfig.WEBVIEW_PAGE);
                         
                         console.log('悬浮窗: WebView 初始化完成，页面:', floatyConfig.WEBVIEW_PAGE);
+                        
+                        // 初始化完成，重置标志
+                        isCreatingWebView = false;
+                        
                     } catch (e) {
                         console.error('悬浮窗: WebView 初始化失败', e.message);
+                        isCreatingWebView = false;
+                        // 初始化失败时关闭窗口
+                        closeFloatyWebView();
                     }
                 }, 200);
                 
@@ -250,6 +306,11 @@ module.exports = {
             } catch (e) {
                 console.error('悬浮窗: 创建悬浮 WebView 失败', e.message);
                 toast('创建配置窗口失败: ' + e.message);
+                isCreatingWebView = false;
+                // 创建失败时确保清理
+                if (floatyWebViewWindow) {
+                    closeFloatyWebView();
+                }
             }
         }
         
@@ -929,7 +990,7 @@ module.exports = {
             }
             
             try {
-                console.log('悬浮窗: 停止脚本，执行ID =', scriptExecution.id);
+                console.log('悬浮窗: 停止脚本-，执行ID =', scriptExecution.id);
                 
                 // 获取脚本引擎并强制停止
                 var engine = scriptExecution.getEngine();
